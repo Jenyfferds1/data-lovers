@@ -1,18 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="root"></div>
-    <!-- <script src="./data/injuries/injuries.js"></script> -->
-    <!-- <script src="./data/pokemon/pokemon.js"></script> -->
-    <!-- <script src="./data/steam/steam.js"></script> -->
-    <!-- <script src="./data/worldbank/worldbank.js"></script> -->
-    <!-- <script src="./data/lol/lol.js"></script> -->
+    <section id="sectionInitial">
+        <h1 class="title">EDUCAM</h1>
+    </section>
+    <section class="seccionCont">
+        <ul class="conteudoTab">
+            <li><button type="button" value="AM" data-tab-seleccionado="tabAm" id="tabam" class="tab">América Latina</button></li>
+            <li><button type="button" value="BRA" data-tab-seleccionado="tabBrasil" id="tabbra" class="tab">Brasil</button></li>
+            <li><button type="button" value="CHI" data-tab-seleccionado="tabChile" id="tabchi" class="tab">Chile</button></li>
+            <li><button type="button" value="MEX" data-tab-seleccionado="tabMexico" id="tabmex" class="tab">México</button></li>
+            <li><button type="button" value="PER" data-tab-seleccionado="tabPeru" id="tabper" class="tab">Peru</button></li>
+        </ul>
+        <div class=""></div>
+        <article id="am" class="conteudo">
+            <h3>América Latina</h3>
+            <div id="conteudoam"></div>
+        </article>
+        <article id="brasil" class="conteudo">
+            <h3>Índices do Brasil</h3>
+            <div id="conteudobrasil">
+                2018: "123"
+            </div>
+        </article>
+        <article id="chile" class="conteudo">
+            <h3>Índices do Chile</h3>
+            <div id="conteudochile"></div>
+        </article>
+        <article id="mexico" class="conteudo">
+            <h3>Índices do México</h3>
+            <div id="conteudomexico"></div>
+        </article>
+        <article id="peru" class="conteudo">
+            <h3>Índices do Peru</h3>
+            <div id="conteudoperu"></div>
+        </article>
+    </section>
+
+    <script src="./data/worldbank/worldbank.js"></script>
     <script src="data.js"></script>
     <script src="main.js"></script>
-  </body>
+</body>
+
 </html>

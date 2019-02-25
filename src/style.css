@@ -1,0 +1,30 @@
+body {
+    margin: 0%;
+    padding: 0%;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: auto;
+    align-items: center;
+}
+
+.conteudoTab {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: auto;
+    align-items: center;
+}
+
+.tab {
+    color: white;
+    background-color: blue;
+    border-radius: 5px;
+    border-bottom: none;
+    padding: 10px;
+    width: 100px;
+}
