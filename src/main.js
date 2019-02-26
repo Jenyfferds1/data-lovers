@@ -1,3 +1,76 @@
+window.onload = function() {
+    showCountryBra();
+    showCountryChi();
+    showCountryMex();
+    showCountryPer();
+};
+
+
+
+function getCountrysBra() {
+    return WORLDBANK.BRA["indicators"];
+}
+
+
+function showCountryBra() {
+    let countryDiv = document.getElementById("conteudobrasil");
+    countryDiv.innerHTML = `
+    ${getCountrysBra().map((indicador)=>`
+     <ul class="country-item">
+      <li><a href="#" class="text-name">${indicador["indicatorName"]}</a></li>
+     </ul>
+    `).join("")}
+    `
+}
+
+function getCountrysChi() {
+    return WORLDBANK.CHL["indicators"];
+}
+
+
+function showCountryChi() {
+    let countryDiv = document.getElementById("conteudochile");
+    countryDiv.innerHTML = `
+    ${getCountrysChi().map((indicador)=>`
+     <ul class="country-item">
+      <li class="text-name">${indicador["indicatorName"]}</li>
+     </ul>
+    `).join("")}
+    `
+}
+
+function getCountrysMex() {
+    return WORLDBANK.MEX["indicators"];
+}
+
+
+function showCountryMex() {
+    let countryDiv = document.getElementById("conteudomexico");
+    countryDiv.innerHTML = `
+    ${getCountrysMex().map((indicador)=>`
+     <ul class="country-item">
+      <li class="text-name">${indicador["indicatorName"]}</li>
+     </ul>
+    `).join("")}
+    `
+}
+
+function getCountrysPer() {
+    return WORLDBANK.PER["indicators"];
+}
+
+
+function showCountryPer() {
+    let countryDiv = document.getElementById("conteudoperu");
+    countryDiv.innerHTML = `
+    ${getCountrysPer().map((indicador)=>`
+     <ul class="country-item">
+      <li class="text-name">${indicador["indicatorName"]}</li>
+     </ul>
+    `).join("")}
+    `
+}
+
 function mostraOcultar(e) {
     let tabSeleccionado = e.target.dataset.tabSeleccionado;
     let brasil = document.getElementById("brasil");
@@ -68,18 +141,3 @@ function carregarPag() {
     }
 }
 carregarPag();
-
-
-let pagBra = document.getElementById("tabbra");
-pagBra.addEventListener('click', carregaPagBra)
-
-function carregaPagBra() {
-    let paisSede = pagBra.value;
-    let bra = document.getElementById("conteudobrasil");
-    for (sede in WORLDBANK[paisSede]) {
-        for (i in WORLDBANK[paisSede][sede]["indicators"]) {
-
-        }
-    }
-
-}
