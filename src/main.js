@@ -5,7 +5,14 @@ window.onload = function() {
     showCountryPer();
 };
 
-
+let menuBra = document.getElementById("anoBra")
+menuBra.addEventListener('change', showCountryBra)
+let menuChi = document.getElementById("anoChi")
+menuChi.addEventListener('change', showCountryChi)
+let menuMex = document.getElementById("anoMex")
+menuMex.addEventListener('change', showCountryMex)
+let menuPer = document.getElementById("anoPer")
+menuPer.addEventListener('change', showCountryPer)
 
 function getCountrysBra() {
     return WORLDBANK.BRA["indicators"];
@@ -13,12 +20,19 @@ function getCountrysBra() {
 
 
 function showCountryBra() {
+    let anoBra = menuBra.value;
     let countryDiv = document.getElementById("conteudobrasil");
     countryDiv.innerHTML = `
     ${getCountrysBra().map((indicador)=>`
      <ul class="country-item">
-      <li><a href="#" class="text-name">${indicador["indicatorName"]}</a></li>
+      <li class="text-name">${indicador["indicatorName"]}</li>
      </ul>
+     <th>Índice</th>
+     <table class="tabela">
+     <tr class="linha">
+     <td class="celula">${indicador["data"][anoBra]}</td>
+     </tr>
+     </table>
     `).join("")}
     `
 }
@@ -29,12 +43,19 @@ function getCountrysChi() {
 
 
 function showCountryChi() {
+    let anoChi = menuChi.value;
     let countryDiv = document.getElementById("conteudochile");
     countryDiv.innerHTML = `
     ${getCountrysChi().map((indicador)=>`
      <ul class="country-item">
       <li class="text-name">${indicador["indicatorName"]}</li>
      </ul>
+     <th>Índice</th>
+     <table class="tabela">
+     <tr class="linha">
+     <td class="celula">${indicador["data"][anoChi]}</td>
+     </tr>
+     </table>
     `).join("")}
     `
 }
@@ -45,12 +66,19 @@ function getCountrysMex() {
 
 
 function showCountryMex() {
+    let anoMex = menuMex.value;
     let countryDiv = document.getElementById("conteudomexico");
     countryDiv.innerHTML = `
     ${getCountrysMex().map((indicador)=>`
      <ul class="country-item">
       <li class="text-name">${indicador["indicatorName"]}</li>
      </ul>
+     <th>Índice</th>
+     <table class="tabela">
+     <tr class="linha">
+     <td class="celula">${indicador["data"][anoMex]}</td>
+     </tr>
+     </table>
     `).join("")}
     `
 }
@@ -61,15 +89,23 @@ function getCountrysPer() {
 
 
 function showCountryPer() {
+    let anoPer = menuPer.value;
     let countryDiv = document.getElementById("conteudoperu");
     countryDiv.innerHTML = `
     ${getCountrysPer().map((indicador)=>`
      <ul class="country-item">
       <li class="text-name">${indicador["indicatorName"]}</li>
      </ul>
+     <th>Índice</th>
+     <table class="tabela">
+     <tr class="linha">
+     <td class="celula">${indicador["data"][anoPer]}</td>
+     </tr>
+     </table>
     `).join("")}
     `
 }
+
 
 function mostraOcultar(e) {
     let tabSeleccionado = e.target.dataset.tabSeleccionado;
