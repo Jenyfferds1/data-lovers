@@ -5,37 +5,56 @@ window.onload = function() {
     showCountryPer();
 };
 
-let menuBra = document.getElementById("anoBra")
-menuBra.addEventListener('change', showCountryBra)
-let menuChi = document.getElementById("anoChi")
-menuChi.addEventListener('change', showCountryChi)
-let menuMex = document.getElementById("anoMex")
-menuMex.addEventListener('change', showCountryMex)
-let menuPer = document.getElementById("anoPer")
-menuPer.addEventListener('change', showCountryPer)
-
-function getCountrysBra() {
-    return WORLDBANK.BRA["indicators"];
-}
 
 
-function showCountryBra() {
+function teste(ano, indicator) {
+    let x = document.getElementById("anoBra").selectedIndex;
+    let y = document.getElementById("anoBra").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudobrasil").selectedIndex;
+    let z = document.getElementById("conteudobrasil").options;
+    let indicator = z[w].textContent;
     let anoBra = menuBra.value;
-    let countryDiv = document.getElementById("conteudobrasil");
-    countryDiv.innerHTML = `
+    let resultTotalBra = document.getElementById("result");
+    if (indicator === getCountrysBra().filter((dado) => dado["indicatorName"]) && ano === getCountrysBra().filter((year) => year["data"][anoBra])
+    }
+
+
+    // let menuBra = document.getElementById("anoBra")
+    // menuBra.addEventListener('change', resultBra)
+    let menuChi = document.getElementById("anoChi")
+    menuChi.addEventListener('change', showCountryChi)
+    let menuMex = document.getElementById("anoMex")
+    menuMex.addEventListener('change', showCountryMex)
+    let menuPer = document.getElementById("anoPer")
+    menuPer.addEventListener('change', showCountryPer)
+
+    function getCountrysBra() {
+        return WORLDBANK.BRA["indicators"];
+    }
+
+
+    function showCountryBra() {
+        let countryDiv = document.getElementById("conteudobrasil");
+        countryDiv.innerHTML = `
     ${getCountrysBra().map((indicador)=>`
-     <ul class="country-item">
-      <li class="text-name">${indicador["indicatorName"]}</li>
-     </ul>
-     <th>Índice</th>
-     <table class="tabela">
-     <tr class="linha">
-     <td class="celula">${indicador["data"][anoBra]}</td>
-     </tr>
-     </table>
+    <option>  
+    <input type="checkbox" class="text-name">
+      <label>${indicador["indicatorName"]}</label>
+     </option>
     `).join("")}
     `
 }
+
+// function resultBra(){
+//      let anoBra = menuBra.value;
+//     let resultTotalBra = document.getElementById("result");
+//     resultTotalBra.innerHTML = `
+//     ${getCountrysBra().map((indicador)=>`
+//     <p>${indicador["data"][anoBra]}</p>
+//     `).join("")}
+//     `
+// }
 
 function getCountrysChi() {
     return WORLDBANK.CHL["indicators"];
@@ -47,7 +66,7 @@ function showCountryChi() {
     let countryDiv = document.getElementById("conteudochile");
     countryDiv.innerHTML = `
     ${getCountrysChi().map((indicador)=>`
-     <ul class="country-item">
+    <ul class="country-item">
       <li class="text-name">${indicador["indicatorName"]}</li>
      </ul>
      <th>Índice</th>
