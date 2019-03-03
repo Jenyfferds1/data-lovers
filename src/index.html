@@ -44,10 +44,11 @@
         <option value="2014" >2014</option>
         <option value="2015" >2015</option>
         <option value="2016" >2016</option>
-        <option value="2017" selected>2017</option>
+        <option value="2017" >2017</option>
+        <option value="none" selected>escolha o ano</option>
     </select>
             </div>
-            <button onclick="teste()">OK</button>
+            <button onclick="filterBra()">OK</button>
             <select id="ind-max-min-bra">
                 <option >Índice Máximo</option>
                 <option>Índice Minímo</option>
@@ -55,7 +56,7 @@
             <div id="ind-max-bra"></div>
             <div id="ind-min-bra"></div>
             <select id="conteudobrasil"></select>
-            <div id="result"></div>
+            <div id="resultBra"></div>
 
         </article>
         <article id="chile" class="conteudo">
@@ -76,7 +77,16 @@
         <option value="2017" >2017</option>
         <option value="none" selected>escolha o ano</option>
     </select>
-                <div id="conteudochile"></div>
+            </div>
+            <button onclick="filterChi()">OK</button>
+            <select id="ind-max-min-chi">
+                <option >Índice Máximo</option>
+                <option>Índice Minímo</option>
+            </select>
+            <div id="ind-max-chi"></div>
+            <div id="ind-min-chi"></div>
+            <select id="conteudochile"></select>
+            <div id="resultChi"></div>
         </article>
         <article id="mexico" class="conteudo">
             <h3>Índices do México</h3>
@@ -96,7 +106,16 @@
         <option value="2017" >2017</option>
         <option value="none" selected>escolha o ano</option>
     </select>
-                <div id="conteudomexico"></div>
+            </div>
+            <button onclick="filterMex()">OK</button>
+            <select id="ind-max-min-mex">
+        <option >Índice Máximo</option>
+        <option>Índice Minímo</option>
+    </select>
+            <div id="ind-max-mex"></div>
+            <div id="ind-min-mex"></div>
+            <select id="conteudomexico"></select>
+            <div id="resultMex"></div>
         </article>
         <article id="peru" class="conteudo">
             <h3>Índices do Peru</h3>
@@ -117,7 +136,15 @@
         <option value="none" selected>escolha o ano</option>
     </select>
             </div>
-            <div id="conteudoperu"></div>
+            <button onclick="filterPer()">OK</button>
+            <select id="ind-max-min-per">
+                <option >Índice Máximo</option>
+                <option>Índice Minímo</option>
+            </select>
+            <div id="ind-max-per"></div>
+            <div id="ind-min-per"></div>
+            <select id="conteudoperu"></select>
+            <div id="resultPer"></div>
         </article>
     </section>
 

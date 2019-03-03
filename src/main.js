@@ -7,14 +7,6 @@ window.onload = function() {
 };
 
 
-// let menuBra = document.getElementById("anoBra")
-// menuBra.addEventListener('change', showCountryBra)
-let menuChi = document.getElementById("anoChi")
-menuChi.addEventListener('change', showCountryChi)
-let menuMex = document.getElementById("anoMex")
-menuMex.addEventListener('change', showCountryMex)
-let menuPer = document.getElementById("anoPer")
-menuPer.addEventListener('change', showCountryPer)
 
 function showCountryAm() {
     let countryDiv = document.getElementById("conteudoam");
@@ -38,38 +30,37 @@ function showCountryAm() {
     <p>${poblacionDataPer}</p>
     `
 }
-showCountryAm()
 
-function teste() {
+
+function filterBra() {
     let x = document.getElementById("anoBra").selectedIndex;
     let y = document.getElementById("anoBra").options;
     let ano = y[x].textContent;
     let w = document.getElementById("conteudobrasil").selectedIndex;
-    //console.log(w)
     let z = document.getElementById("conteudobrasil").options;
-    //console.log(z)
     let indicator = z[w].textContent;
-    //console.log(indicator)
-    let resultTotalBra = document.getElementById("result");
+    let resultTotalBra = document.getElementById("resultBra");
     let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === indicator)
-        //console.log(poblacionBra)
     let indicatorBra = getCountrysBra().map(indic => indic["indicatorName"])
     for (indice in indicatorBra) {
         let indicatorBraTotal = indicatorBra[indice]
         let dataBra = getCountrysBra().map(indic => indic.data)
         for (datas of dataBra) {
-            //console.log(datas)
             for (dataTotal in datas) {
                 let dataTotalBra = dataTotal
                 if (ano === dataTotalBra && indicator === indicatorBraTotal) {
-                    resultTotalBra.innerHTML = poblacionBra.data[ano]
+                    resultTotalBra.innerHTML = "Valor do índice: " + poblacionBra.data[ano]
+                    if (poblacionBra.data[ano] === "") {
+                        resultTotalBra.innerHTML = "Índice não indicado"
+                    }
                 }
             }
-
         }
 
     }
+
 }
+
 
 
 function getCountrysBra() {
@@ -88,19 +79,6 @@ function getCountrysBra() {
 // }
 // console.log("TESTEEEEWFS", (getCountrysBraThree()))
 
-
-// function showDateBra() {
-//     let dateDiv = document.getElementById("anoBra");
-//     console.log(dates)
-//     dateDiv.innerHTML = `
-//     ${getCountrysBra().map((indicador)=>`
-//     <option>  
-//     <input type="checkbox" class="text-name">
-//       <label value="BRA">${indicador["data"]}</label>
-//      </option>
-//     `).join("")}
-//     `
-// }
 function showCountryBra() {
     let countryDiv = document.getElementById("conteudobrasil");
     countryDiv.innerHTML = `
@@ -134,6 +112,34 @@ function maxBra() {
 //     `
 // }
 
+function filterChi() {
+    let x = document.getElementById("anoChi").selectedIndex;
+    let y = document.getElementById("anoChi").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudochile").selectedIndex;
+    let z = document.getElementById("conteudochile").options;
+    let indicator = z[w].textContent;
+    let resultTotalChi = document.getElementById("resultChi");
+    let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === indicator)
+    let indicatorChi = getCountrysChi().map(indic => indic["indicatorName"])
+    for (indice in indicatorChi) {
+        let indicatorChiTotal = indicatorChi[indice]
+        let dataChi = getCountrysChi().map(indic => indic.data)
+        for (datas of dataChi) {
+            for (dataTotal in datas) {
+                let dataTotalChi = dataTotal
+                if (ano === dataTotalChi && indicator === indicatorChiTotal) {
+                    resultTotalChi.innerHTML = "Valor do índice: " + poblacionChi.data[ano]
+                    if (poblacionChi.data[ano] === "") {
+                        resultTotalChi.innerHTML = "Índice não indicado"
+                    }
+                }
+            }
+
+        }
+
+    }
+}
 
 function getCountrysChi() {
     return WORLDBANK.CHL["indicators"];
@@ -141,21 +147,41 @@ function getCountrysChi() {
 
 
 function showCountryChi() {
-    let anoChi = menuChi.value;
     let countryDiv = document.getElementById("conteudochile");
     countryDiv.innerHTML = `
     ${getCountrysChi().map((indicador)=>`
-    <ul class="country-item">
-      <li class="text-name">${indicador["indicatorName"]}</li>
-     </ul>
-     <th>Índice</th>
-     <table class="tabela">
-     <tr class="linha">
-     <td class="celula">${indicador["data"][anoChi]}</td>
-     </tr>
-     </table>
+    <option>${indicador["indicatorName"]}</option>
     `).join("")}
     `
+}
+
+function filterMex() {
+    let x = document.getElementById("anoMex").selectedIndex;
+    let y = document.getElementById("anoMex").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudomexico").selectedIndex;
+    let z = document.getElementById("conteudomexico").options;
+    let indicator = z[w].textContent;
+    let resultTotalMex = document.getElementById("resultMex");
+    let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === indicator)
+    let indicatroMex = getCountrysMex().map(indic => indic["indicatorName"])
+    for (indice in indicatroMex) {
+        let indicatorMexTotal = indicatroMex[indice]
+        let dataMex = getCountrysMex().map(indic => indic.data)
+        for (datas of dataMex) {
+            for (dataTotal in datas) {
+                let dataTotalMex = dataTotal
+                if (ano === dataTotalMex && indicator === indicatorMexTotal) {
+                    resultTotalMex.innerHTML = "Valor do índice: " + poblacionMex.data[ano]
+                    if (poblacionMex.data[ano] === "") {
+                        resultTotalMex.innerHTML = "Índice não indicado"
+                    }
+                }
+            }
+
+        }
+
+    }
 }
 
 function getCountrysMex() {
@@ -164,19 +190,10 @@ function getCountrysMex() {
 
 
 function showCountryMex() {
-    let anoMex = menuMex.value;
     let countryDiv = document.getElementById("conteudomexico");
     countryDiv.innerHTML = `
     ${getCountrysMex().map((indicador)=>`
-     <ul class="country-item">
-      <li class="text-name">${indicador["indicatorName"]}</li>
-     </ul>
-     <th>Índice</th>
-     <table class="tabela">
-     <tr class="linha">
-     <td class="celula">${indicador["data"][anoMex]}</td>
-     </tr>
-     </table>
+    <option>${indicador["indicatorName"]}</option>
     `).join("")}
     `
 }
@@ -185,21 +202,40 @@ function getCountrysPer() {
     return WORLDBANK.PER["indicators"];
 }
 
+function filterPer() {
+    let x = document.getElementById("anoPer").selectedIndex;
+    let y = document.getElementById("anoPer").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudoperu").selectedIndex;
+    let z = document.getElementById("conteudoperu").options;
+    let indicator = z[w].textContent;
+    let resultTotalPer = document.getElementById("resultPer");
+    let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === indicator)
+    let indicatorPer = getCountrysPer().map(indic => indic["indicatorName"])
+    for (indice in indicatorPer) {
+        let indicatorPerTotal = indicatorPer[indice]
+        let dataPer = getCountrysPer().map(indic => indic.data)
+        for (datas of dataPer) {
+            for (dataTotal in datas) {
+                let dataTotalPer = dataTotal
+                if (ano === dataTotalPer && indicator === indicatorPerTotal) {
+                    resultTotalPer.innerHTML = "Valor do índice: " + poblacionPer.data[ano]
+                    if (poblacionPer.data[ano] === "") {
+                        resultTotalPer.innerHTML = "Índice não indicado"
+                    }
+                }
+            }
+
+        }
+
+    }
+}
 
 function showCountryPer() {
-    let anoPer = menuPer.value;
     let countryDiv = document.getElementById("conteudoperu");
     countryDiv.innerHTML = `
     ${getCountrysPer().map((indicador)=>`
-     <ul class="country-item">
-      <li class="text-name">${indicador["indicatorName"]}</li>
-     </ul>
-     <th>Índice</th>
-     <table class="tabela">
-     <tr class="linha">
-     <td class="celula">${indicador["data"][anoPer]}</td>
-     </tr>
-     </table>
+    <option>${indicador["indicatorName"]}</option>
     `).join("")}
     `
 }
