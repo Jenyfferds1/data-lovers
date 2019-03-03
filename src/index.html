@@ -44,14 +44,17 @@
         <option value="2014" >2014</option>
         <option value="2015" >2015</option>
         <option value="2016" >2016</option>
-        <option value="2017" >2017</option>
-        <option value="none" selected>escolha o ano</option>
+        <option value="2017" selected>2017</option>
     </select>
             </div>
-            <span class="indices">Índices</span>
-            <div class="componente-dois"></div>
+            <button onclick="teste()">OK</button>
+            <select id="ind-max-min-bra">
+                <option >Índice Máximo</option>
+                <option>Índice Minímo</option>
+            </select>
+            <div id="ind-max-bra"></div>
+            <div id="ind-min-bra"></div>
             <select id="conteudobrasil"></select>
-            <button type="button" id="resultado" onclick="teste()">Ok</button>
             <div id="result"></div>
 
         </article>

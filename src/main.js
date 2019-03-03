@@ -3,61 +3,91 @@ window.onload = function() {
     showCountryChi();
     showCountryMex();
     showCountryPer();
+    showCountryAm();
 };
 
+
+// let menuBra = document.getElementById("anoBra")
+// menuBra.addEventListener('change', showCountryBra)
+let menuChi = document.getElementById("anoChi")
+menuChi.addEventListener('change', showCountryChi)
+let menuMex = document.getElementById("anoMex")
+menuMex.addEventListener('change', showCountryMex)
+let menuPer = document.getElementById("anoPer")
+menuPer.addEventListener('change', showCountryPer)
+
+function showCountryAm() {
+    let countryDiv = document.getElementById("conteudoam");
+    let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === "Población, mujeres")
+    let poblacionDataBra = poblacionBra.data["2017"]
+    let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === "Población, mujeres")
+    let poblacionDataChi = poblacionChi.data["2017"]
+    let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === "Población, mujeres")
+    let poblacionDataMex = poblacionMex.data["2017"]
+    let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === "Población, mujeres")
+    let poblacionDataPer = poblacionPer.data["2017"]
+    countryDiv.innerHTML = `
+    <p>Población, mujeres na América Latina em 2017</p>
+    <p>Población, mujeres Brasil<p/>
+    <p>${poblacionDataBra}</p>
+    <p>Población, mujeres Chile<p/>
+    <p>${poblacionDataChi}</p>
+    <p>Población, mujeres Mexico<p/>
+    <p>${poblacionDataMex}</p>
+    <p>Población, mujeres Peru<p/>
+    <p>${poblacionDataPer}</p>
+    `
+}
+showCountryAm()
 
 function teste() {
     let x = document.getElementById("anoBra").selectedIndex;
     let y = document.getElementById("anoBra").options;
     let ano = y[x].textContent;
-    //console.log(ano)
     let w = document.getElementById("conteudobrasil").selectedIndex;
+    //console.log(w)
     let z = document.getElementById("conteudobrasil").options;
+    //console.log(z)
     let indicator = z[w].textContent;
-    console.log(indicator)
+    //console.log(indicator)
     let resultTotalBra = document.getElementById("result");
-    for (year in WORLDBANK.BRA) {
-        for (indic of WORLDBANK.BRA[year]) {
-            for (a in indic.data) {
-                for (f of getCountrysBraThree()) {
-                    console.log("ANO", ano, "A", a, "INDICADOR", indicator, "F", f)
-                    if (ano === a && indicator === f) {
-
-                        resultTotalBra.innerHTML = "tchau"
-                    }
+    let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === indicator)
+        //console.log(poblacionBra)
+    let indicatorBra = getCountrysBra().map(indic => indic["indicatorName"])
+    for (indice in indicatorBra) {
+        let indicatorBraTotal = indicatorBra[indice]
+        let dataBra = getCountrysBra().map(indic => indic.data)
+        for (datas of dataBra) {
+            //console.log(datas)
+            for (dataTotal in datas) {
+                let dataTotalBra = dataTotal
+                if (ano === dataTotalBra && indicator === indicatorBraTotal) {
+                    resultTotalBra.innerHTML = poblacionBra.data[ano]
                 }
             }
+
         }
+
     }
 }
+
 
 function getCountrysBra() {
     return WORLDBANK.BRA["indicators"];
 }
 
 
-function getCountrysBraThree() {
-    let aux = []
-    for (ind in WORLDBANK.BRA) {
-        for (i of WORLDBANK.BRA[ind]) {
-            aux.push(i.indicatorName)
-        }
-    }
-    return aux
-}
-//console.log("TESTEEEEWFS", getCountrysBraThree())
+// function getCountrysBraThree() {
+//     let aux = []
+//     for (ind in WORLDBANK.BRA) {
+//         for (i in WORLDBANK.BRA[ind]) {
+//             aux.push(i.indicatorName)
+//         }
+//     }
+//     return aux
+// }
+// console.log("TESTEEEEWFS", (getCountrysBraThree()))
 
-function showCountryBra() {
-    let countryDiv = document.getElementById("conteudobrasil");
-    countryDiv.innerHTML = `
-    ${getCountrysBra().map((indicador)=>`
-    <option>  
-    <input type="checkbox" class="text-name">
-      <label value="BRA">${indicador["indicatorName"]}</label>
-     </option>
-    `).join("")}
-    `
-}
 
 // function showDateBra() {
 //     let dateDiv = document.getElementById("anoBra");
@@ -71,6 +101,28 @@ function showCountryBra() {
 //     `).join("")}
 //     `
 // }
+function showCountryBra() {
+    let countryDiv = document.getElementById("conteudobrasil");
+    countryDiv.innerHTML = `
+    ${getCountrysBra().map((indicador)=>`
+    <option>${indicador["indicatorName"]}</option>
+    `).join("")}
+    `
+
+}
+
+function maxBra() {
+    let aux = []
+    let indMaxBra = document.getElementById("ind-max-bra")
+    let filtro = getCountrysBra().map(indic => indic.data)
+    for (x in filtro) {
+        aux.push(filtro[x])
+    }
+    let maxInd = Math.max(aux)
+    console.log(maxInd)
+
+}
+//maxBra()
 
 // function resultBra(){
 //      let anoBra = menuBra.value;
@@ -82,12 +134,7 @@ function showCountryBra() {
 //     `
 // }
 
-let menuChi = document.getElementById("anoChi")
-menuChi.addEventListener('change', showCountryChi)
-let menuMex = document.getElementById("anoMex")
-menuMex.addEventListener('change', showCountryMex)
-let menuPer = document.getElementById("anoPer")
-menuPer.addEventListener('change', showCountryPer)
+
 function getCountrysChi() {
     return WORLDBANK.CHL["indicators"];
 }
@@ -218,9 +265,9 @@ function carregarPag() {
     let am = document.getElementById("am");
     chile.style.display = 'none';
     mexico.style.display = 'none';
-    brasil.style.display = 'block';
+    brasil.style.display = 'none';
     peru.style.display = 'none';
-    am.style.display = 'none';
+    am.style.display = 'block';
     let elementosTab = document.getElementsByClassName("tab");
     for (let elementos of elementosTab) {
         elementos.addEventListener('click', mostraOcultar)
