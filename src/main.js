@@ -4,9 +4,11 @@ window.onload = function() {
     showCountryMex();
     showCountryPer();
     showCountryAm();
+    indAmBra();
+    indAmChi();
+    indAmMex();
+    indAmPer();
 };
-
-
 
 function showCountryAm() {
     let countryDiv = document.getElementById("conteudoam");
@@ -31,6 +33,79 @@ function showCountryAm() {
     `
 }
 
+function indAmBra() {
+    let countryDivBra = document.getElementById("conteudoamBra");
+    countryDivBra.innerHTML = `
+    ${getCountrysBra().map((indicador)=>`
+    <option>${indicador["indicatorName"]}</option>
+    `).join("")}
+    `
+}
+
+// function minMaxAmBra(){
+//     let w = document.getElementById("conteudoamBra").selectedIndex;
+//     let z = document.getElementById("conteudoamBra").options;
+//     let indicator = z[w].textContent;
+//     let resultTotalBraAm = document.getElementById("result-am-bra");
+//     let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === indicator)
+//     let indicatorBra = getCountrysBra().map(indic => indic["indicatorName"])
+//     for (indice in indicatorBra) {
+//         let indicatorBraTotal = indicatorBra[indice]
+//         let dataBra = getCountrysBra().map(indic => indic.data)
+//         for (datas of dataBra) {
+//             for (dataTotal in datas) {
+//                 let dataTotalBra = dataTotal[datas]
+//                 console.log(dataTotalBra)
+//             if(indicator === indicatorBraTotal) {
+//                 resultTotalBraAm.innerHTML = "Valor do índice: " + Math.max(poblacionBra.data)
+//                 //console.log(poblacionBra.data)
+//              }
+//          }
+//      }
+//   }
+// }
+
+function minMaxAmBra(){
+    let w = document.getElementById("conteudoamBra").selectedIndex;
+    let z = document.getElementById("conteudoamBra").options;
+    let indicator = z[w].textContent;
+    let resultTotalBraAm = document.getElementById("result-am-bra");
+    let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === indicator)
+    let anos = [poblacionBra.data[2007], poblacionBra.data[2008], poblacionBra.data[2009], poblacionBra.data[2010], poblacionBra.data[2011],poblacionBra.data[2012],poblacionBra.data[2013], poblacionBra.data[2014], poblacionBra.data[2015], poblacionBra.data[2016],poblacionBra.data[2017]]
+    let max = anos.reduce(function(a,b){
+      return Math.max(a,b)
+    })
+    let min = anos.reduce(function(a,b){
+        return Math.min(a,b)
+      })
+      console.log(anos, min, max)
+
+}
+
+function indAmChi(){
+    let countryDivChi = document.getElementById("conteudoamChi");
+    countryDivChi.innerHTML = `
+    ${getCountrysChi().map((indicador)=>`
+    <option>${indicador["indicatorName"]}</option>
+    `).join("")}
+    `
+}
+function indAmMex(){
+    let countryDivMex = document.getElementById("conteudoamMex");
+    countryDivMex.innerHTML = `
+    ${getCountrysMex().map((indicador)=>`
+    <option>${indicador["indicatorName"]}</option>
+    `).join("")}
+    `
+}
+function indAmPer(){
+    let countryDivPer = document.getElementById("conteudoamPer");
+    countryDivPer.innerHTML = `
+    ${getCountrysPer().map((indicador)=>`
+    <option>${indicador["indicatorName"]}</option>
+    `).join("")}
+    `
+}
 
 function filterBra() {
     let x = document.getElementById("anoBra").selectedIndex;
@@ -61,23 +136,99 @@ function filterBra() {
 
 }
 
+function compararChiBra() {
+    let x = document.getElementById("anoBra").selectedIndex;
+    let y = document.getElementById("anoBra").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudobrasil").selectedIndex;
+    let z = document.getElementById("conteudobrasil").options;
+    let indicator = z[w].textContent;
+    let resultTotalComp = document.getElementById("compararChiBra");
+    let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === indicator)
+    let indicatorChi = getCountrysChi().map(indic => indic["indicatorName"])
+    for (indice in indicatorChi) {
+        let indicatorChiTotal = indicatorChi[indice]
+        let dataChi = getCountrysChi().map(indic => indic.data)
+        for (datas of dataChi) {
+            for (dataTotal in datas) {
+                let dataTotalChi = dataTotal
+                if (ano === dataTotalChi && indicator === indicatorChiTotal) {
+                    resultTotalComp.innerHTML = "Valor do índice no Chile: " + poblacionChi.data[ano]
+                    if (poblacionChi.data[ano] === "") {
+                        resultTotalComp.innerHTML = "Índice não indicado"
+                    }
+                }
+            }
+
+        }
+
+    }
+}
+
+function compararMexBra() {
+    let x = document.getElementById("anoBra").selectedIndex;
+    let y = document.getElementById("anoBra").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudobrasil").selectedIndex;
+    let z = document.getElementById("conteudobrasil").options;
+    let indicator = z[w].textContent;
+    let resultTotalComp = document.getElementById("compararMexBra");
+    let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === indicator)
+    let indicatroMex = getCountrysMex().map(indic => indic["indicatorName"])
+    for (indice in indicatroMex) {
+        let indicatorMexTotal = indicatroMex[indice]
+        let dataMex = getCountrysMex().map(indic => indic.data)
+        for (datas of dataMex) {
+            for (dataTotal in datas) {
+                let dataTotalMex = dataTotal
+                if (ano === dataTotalMex && indicator === indicatorMexTotal) {
+                    resultTotalComp.innerHTML = "Valor do índice no México: " + poblacionMex.data[ano]
+                    if (poblacionMex.data[ano] === "") {
+                        resultTotalComp.innerHTML = "Índice não indicado"
+                    }
+                }
+            }
+
+        }
+
+    }
+}
+
+function compararPerBra() {
+    let x = document.getElementById("anoBra").selectedIndex;
+    let y = document.getElementById("anoBra").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudobrasil").selectedIndex;
+    let z = document.getElementById("conteudobrasil").options;
+    let indicator = z[w].textContent;
+    let resultTotalComp = document.getElementById("compararPerBra");
+    let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === indicator)
+    let indicatorPer = getCountrysPer().map(indic => indic["indicatorName"])
+    for (indice in indicatorPer) {
+        let indicatorPerTotal = indicatorPer[indice]
+        let dataPer = getCountrysPer().map(indic => indic.data)
+        for (datas of dataPer) {
+            for (dataTotal in datas) {
+                let dataTotalPer = dataTotal
+                if (ano === dataTotalPer && indicator === indicatorPerTotal) {
+                    resultTotalComp.innerHTML = "Valor do índice no Peru: " + poblacionPer.data[ano]
+                    if (poblacionPer.data[ano] === "") {
+                        resultTotalComp.innerHTML = "Índice não indicado"
+                    }
+                }
+            }
+
+        }
+
+    }
+}
+
+
 
 
 function getCountrysBra() {
     return WORLDBANK.BRA["indicators"];
 }
-
-
-// function getCountrysBraThree() {
-//     let aux = []
-//     for (ind in WORLDBANK.BRA) {
-//         for (i in WORLDBANK.BRA[ind]) {
-//             aux.push(i.indicatorName)
-//         }
-//     }
-//     return aux
-// }
-// console.log("TESTEEEEWFS", (getCountrysBraThree()))
 
 function showCountryBra() {
     let countryDiv = document.getElementById("conteudobrasil");
@@ -86,30 +237,18 @@ function showCountryBra() {
     <option>${indicador["indicatorName"]}</option>
     `).join("")}
     `
-
 }
 
-function maxBra() {
-    let aux = []
-    let indMaxBra = document.getElementById("ind-max-bra")
-    let filtro = getCountrysBra().map(indic => indic.data)
-    for (x in filtro) {
-        aux.push(filtro[x])
-    }
-    let maxInd = Math.max(aux)
-    console.log(maxInd)
+// function maxBra() {
+//     let aux = []
+//     let indMaxBra = document.getElementById("ind-max-bra")
+//     let filtro = getCountrysBra().map(indic => indic.data)
+//     for (x in filtro) {
+//         aux.push(filtro[x])
+//     }
+//     let maxInd = Math.max(aux)
+//     console.log(maxInd)
 
-}
-//maxBra()
-
-// function resultBra(){
-//      let anoBra = menuBra.value;
-//     let resultTotalBra = document.getElementById("result");
-//     resultTotalBra.innerHTML = `
-//     ${getCountrysBra().map((indicador)=>`
-//     <p>${indicador["data"][anoBra]}</p>
-//     `).join("")}
-//     `
 // }
 
 function filterChi() {
@@ -141,6 +280,92 @@ function filterChi() {
     }
 }
 
+function compararBraChi(){
+    let x = document.getElementById("anoChi").selectedIndex;
+    let y = document.getElementById("anoChi").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudochile").selectedIndex;
+    let z = document.getElementById("conteudochile").options;
+    let indicator = z[w].textContent;
+    let resultTotalComp = document.getElementById("compararBraChi"); 
+    let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === indicator)
+    let indicatorBra = getCountrysBra().map(indic => indic["indicatorName"])
+    for (indice in indicatorBra) {
+        let indicatorBraTotal = indicatorBra[indice]
+        let dataBra = getCountrysBra().map(indic => indic.data)
+        for (datas of dataBra) {
+            for (dataTotal in datas) {
+                let dataTotalBra = dataTotal
+                if (ano === dataTotalBra && indicator === indicatorBraTotal) {
+                    resultTotalComp.innerHTML = "Valor do índice no Brasil: " + poblacionBra.data[ano]
+                    if (poblacionBra.data[ano] === "") {
+                        resultTotalComp.innerHTML = "Índice não indicado"
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+function compararMexChi(){
+    let x = document.getElementById("anoChi").selectedIndex;
+    let y = document.getElementById("anoChi").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudochile").selectedIndex;
+    let z = document.getElementById("conteudochile").options;
+    let indicator = z[w].textContent;
+    let resultTotalComp = document.getElementById("compararMexChi");
+    let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === indicator)
+    let indicatroMex = getCountrysMex().map(indic => indic["indicatorName"])
+    for (indice in indicatroMex) {
+        let indicatorMexTotal = indicatroMex[indice]
+        let dataMex = getCountrysMex().map(indic => indic.data)
+        for (datas of dataMex) {
+            for (dataTotal in datas) {
+                let dataTotalMex = dataTotal
+                if (ano === dataTotalMex && indicator === indicatorMexTotal) {
+                    resultTotalComp.innerHTML = "Valor do índice no México: " + poblacionMex.data[ano]
+                    if (poblacionMex.data[ano] === "") {
+                        resultTotalComp.innerHTML = "Índice não indicado"
+                    }
+                }
+            }
+
+        }
+
+    }
+}
+
+function compararPerChi(){
+    let x = document.getElementById("anoChi").selectedIndex;
+    let y = document.getElementById("anoChi").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudochile").selectedIndex;
+    let z = document.getElementById("conteudochile").options;
+    let indicator = z[w].textContent;
+    let resultTotalComp = document.getElementById("compararPerChi");
+    let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === indicator)
+    let indicatorPer = getCountrysPer().map(indic => indic["indicatorName"])
+    for (indice in indicatorPer) {
+        let indicatorPerTotal = indicatorPer[indice]
+        let dataPer = getCountrysPer().map(indic => indic.data)
+        for (datas of dataPer) {
+            for (dataTotal in datas) {
+                let dataTotalPer = dataTotal
+                if (ano === dataTotalPer && indicator === indicatorPerTotal) {
+                    resultTotalComp.innerHTML = "Valor do índice no Peru: " + poblacionPer.data[ano]
+                    if (poblacionPer.data[ano] === "") {
+                        resultTotalComp.innerHTML = "Índice não indicado"
+                    }
+                }
+            }
+
+        }
+
+    }
+}
+
 function getCountrysChi() {
     return WORLDBANK.CHL["indicators"];
 }
@@ -154,6 +379,7 @@ function showCountryChi() {
     `).join("")}
     `
 }
+
 
 function filterMex() {
     let x = document.getElementById("anoMex").selectedIndex;
@@ -184,6 +410,91 @@ function filterMex() {
     }
 }
 
+function compararBraMex(){
+    let x = document.getElementById("anoMex").selectedIndex;
+    let y = document.getElementById("anoMex").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudomexico").selectedIndex;
+    let z = document.getElementById("conteudomexico").options;
+    let indicator = z[w].textContent;
+    let resultTotalComp = document.getElementById("compararBraMex");
+    let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === indicator)
+    let indicatorBra = getCountrysBra().map(indic => indic["indicatorName"])
+    for (indice in indicatorBra) {
+        let indicatorBraTotal = indicatorBra[indice]
+        let dataBra = getCountrysBra().map(indic => indic.data)
+        for (datas of dataBra) {
+            for (dataTotal in datas) {
+                let dataTotalBra = dataTotal
+                if (ano === dataTotalBra && indicator === indicatorBraTotal) {
+                    resultTotalComp.innerHTML = "Valor do índice no Brasil: " + poblacionBra.data[ano]
+                    if (poblacionBra.data[ano] === "") {
+                        resultTotalComp.innerHTML = "Índice não indicado"
+                    }
+                }
+            }
+        }
+    }
+}
+
+function compararChiMex(){
+    let x = document.getElementById("anoMex").selectedIndex;
+    let y = document.getElementById("anoMex").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudomexico").selectedIndex;
+    let z = document.getElementById("conteudomexico").options;
+    let indicator = z[w].textContent;
+    let resultTotalComp = document.getElementById("compararChiMex");
+    let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === indicator)
+    let indicatorChi = getCountrysChi().map(indic => indic["indicatorName"])
+    for (indice in indicatorChi) {
+        let indicatorChiTotal = indicatorChi[indice]
+        let dataChi = getCountrysChi().map(indic => indic.data)
+        for (datas of dataChi) {
+            for (dataTotal in datas) {
+                let dataTotalChi = dataTotal
+                if (ano === dataTotalChi && indicator === indicatorChiTotal) {
+                    resultTotalComp.innerHTML = "Valor do índice no Chile: " + poblacionChi.data[ano]
+                    if (poblacionChi.data[ano] === "") {
+                        resultTotalComp.innerHTML = "Índice não indicado"
+                    }
+                }
+            }
+
+        }
+
+    }
+}
+
+function compararPerMex(){
+    let x = document.getElementById("anoMex").selectedIndex;
+    let y = document.getElementById("anoMex").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudomexico").selectedIndex;
+    let z = document.getElementById("conteudomexico").options;
+    let indicator = z[w].textContent;
+    let resultTotalComp = document.getElementById("compararPerMex");
+    let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === indicator)
+    let indicatorPer = getCountrysPer().map(indic => indic["indicatorName"])
+    for (indice in indicatorPer) {
+        let indicatorPerTotal = indicatorPer[indice]
+        let dataPer = getCountrysPer().map(indic => indic.data)
+        for (datas of dataPer) {
+            for (dataTotal in datas) {
+                let dataTotalPer = dataTotal
+                if (ano === dataTotalPer && indicator === indicatorPerTotal) {
+                    resultTotalComp.innerHTML = "Valor do índice no Peru: " + poblacionPer.data[ano]
+                    if (poblacionPer.data[ano] === "") {
+                        resultTotalComp.innerHTML = "Índice não indicado"
+                    }
+                }
+            }
+
+        }
+
+    }
+}
+
 function getCountrysMex() {
     return WORLDBANK.MEX["indicators"];
 }
@@ -198,9 +509,6 @@ function showCountryMex() {
     `
 }
 
-function getCountrysPer() {
-    return WORLDBANK.PER["indicators"];
-}
 
 function filterPer() {
     let x = document.getElementById("anoPer").selectedIndex;
@@ -229,6 +537,91 @@ function filterPer() {
         }
 
     }
+}
+
+function compararBraPer(){
+    let x = document.getElementById("anoPer").selectedIndex;
+    let y = document.getElementById("anoPer").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudoperu").selectedIndex;
+    let z = document.getElementById("conteudoperu").options;
+    let indicator = z[w].textContent;
+    let resultTotalComp = document.getElementById("compararBraPer");
+    let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === indicator)
+    let indicatorBra = getCountrysBra().map(indic => indic["indicatorName"])
+    for (indice in indicatorBra) {
+        let indicatorBraTotal = indicatorBra[indice]
+        let dataBra = getCountrysBra().map(indic => indic.data)
+        for (datas of dataBra) {
+            for (dataTotal in datas) {
+                let dataTotalBra = dataTotal
+                if (ano === dataTotalBra && indicator === indicatorBraTotal) {
+                    resultTotalComp.innerHTML = "Valor do índice no Brasil: " + poblacionBra.data[ano]
+                    if (poblacionBra.data[ano] === "") {
+                        resultTotalComp.innerHTML = "Índice não indicado"
+                    }
+                }
+            }
+        }
+    }
+}
+
+function compararChiPer(){
+    let x = document.getElementById("anoPer").selectedIndex;
+    let y = document.getElementById("anoPer").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudoperu").selectedIndex;
+    let z = document.getElementById("conteudoperu").options;
+    let indicator = z[w].textContent;
+    let resultTotalComp = document.getElementById("compararChiPer");
+    let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === indicator)
+    let indicatorChi = getCountrysChi().map(indic => indic["indicatorName"])
+    for (indice in indicatorChi) {
+        let indicatorChiTotal = indicatorChi[indice]
+        let dataChi = getCountrysChi().map(indic => indic.data)
+        for (datas of dataChi) {
+            for (dataTotal in datas) {
+                let dataTotalChi = dataTotal
+                if (ano === dataTotalChi && indicator === indicatorChiTotal) {
+                    resultTotalComp.innerHTML = "Valor do índice no Chile: " + poblacionChi.data[ano]
+                    if (poblacionChi.data[ano] === "") {
+                        resultTotalComp.innerHTML = "Índice não indicado"
+                    }
+                }
+            }
+        }
+    }
+}
+
+function compararMexPer(){
+    let x = document.getElementById("anoPer").selectedIndex;
+    let y = document.getElementById("anoPer").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudoperu").selectedIndex;
+    let z = document.getElementById("conteudoperu").options;
+    let indicator = z[w].textContent;
+    let resultTotalComp = document.getElementById("compararMexPer");
+    let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === indicator)
+    let indicatroMex = getCountrysMex().map(indic => indic["indicatorName"])
+    for (indice in indicatroMex) {
+        let indicatorMexTotal = indicatroMex[indice]
+        let dataMex = getCountrysMex().map(indic => indic.data)
+        for (datas of dataMex) {
+            for (dataTotal in datas) {
+                let dataTotalMex = dataTotal
+                if (ano === dataTotalMex && indicator === indicatorMexTotal) {
+                    resultTotalComp.innerHTML = "Valor do índice no México: " + poblacionMex.data[ano]
+                    if (poblacionMex.data[ano] === "") {
+                        resultTotalComp.innerHTML = "Índice não indicado"
+                    }
+                }
+            }
+        }
+    }
+}
+
+function getCountrysPer() {
+    return WORLDBANK.PER["indicators"];
 }
 
 function showCountryPer() {

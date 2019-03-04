@@ -21,13 +21,24 @@
             <li><button type="button" value="PER" data-tab-seleccionado="tabPeru" id="tabper" class="tab">Peru</button></li>
         </ul>
 
-        <div class="filter" id="filter">
-
-        </div>
-        </div>
+        <div class="filter" id="filter"></div>
         <article id="am" class="conteudo">
             <h3>América Latina</h3>
             <div id="conteudoam"></div>
+            <p>Indices do Brasil</p>
+            <select id="conteudoamBra"></select>
+            <button onclick="minMaxAmBra()">OK</button>
+            <p id="result-am-bra"></p>
+            <p>Indices do Chile</p>
+            <select id="conteudoamChi"></select>
+            <button onclick="">OK</button>
+            <p>Indices do México</p>
+            <select id="conteudoamMex"></select>
+            <button onclick="">OK</button>
+            <p>Indices do Peru</p>
+            <select id="conteudoamPer"></select>
+            <button onclick="">OK</button>
+
         </article>
         <article id="brasil" class="conteudo">
             <h3>Índices do Brasil</h3>
@@ -49,15 +60,12 @@
     </select>
             </div>
             <button onclick="filterBra()">OK</button>
-            <select id="ind-max-min-bra">
-                <option >Índice Máximo</option>
-                <option>Índice Minímo</option>
-            </select>
-            <div id="ind-max-bra"></div>
-            <div id="ind-min-bra"></div>
             <select id="conteudobrasil"></select>
             <div id="resultBra"></div>
-
+            <button onclick="compararChiBra(); compararMexBra(); compararPerBra()">Comparar com os outros países</button>
+            <div id="compararChiBra"></div>
+            <div id="compararMexBra"></div>
+            <div id="compararPerBra"></div>
         </article>
         <article id="chile" class="conteudo">
             <h3>Índices do Chile</h3>
@@ -79,14 +87,12 @@
     </select>
             </div>
             <button onclick="filterChi()">OK</button>
-            <select id="ind-max-min-chi">
-                <option >Índice Máximo</option>
-                <option>Índice Minímo</option>
-            </select>
-            <div id="ind-max-chi"></div>
-            <div id="ind-min-chi"></div>
             <select id="conteudochile"></select>
             <div id="resultChi"></div>
+            <button onclick="compararBraChi(); compararMexChi(); compararPerChi()">Comparar com os outros países</button>
+            <div id="compararBraChi"></div>
+            <div id="compararMexChi"></div>
+            <div id="compararPerChi"></div>
         </article>
         <article id="mexico" class="conteudo">
             <h3>Índices do México</h3>
@@ -108,14 +114,12 @@
     </select>
             </div>
             <button onclick="filterMex()">OK</button>
-            <select id="ind-max-min-mex">
-        <option >Índice Máximo</option>
-        <option>Índice Minímo</option>
-    </select>
-            <div id="ind-max-mex"></div>
-            <div id="ind-min-mex"></div>
             <select id="conteudomexico"></select>
             <div id="resultMex"></div>
+            <button onclick="compararBraMex(); compararChiMex(); compararPerMex()">Comparar com os outros países</button>
+            <div id="compararBraMex"></div>
+            <div id="compararChiMex"></div>
+            <div id="compararPerMex"></div>
         </article>
         <article id="peru" class="conteudo">
             <h3>Índices do Peru</h3>
@@ -137,14 +141,12 @@
     </select>
             </div>
             <button onclick="filterPer()">OK</button>
-            <select id="ind-max-min-per">
-                <option >Índice Máximo</option>
-                <option>Índice Minímo</option>
-            </select>
-            <div id="ind-max-per"></div>
-            <div id="ind-min-per"></div>
             <select id="conteudoperu"></select>
             <div id="resultPer"></div>
+            <button onclick="compararBraPer(); compararChiPer(); compararMexPer()">Comparar com os outros países</button>
+            <div id="compararBraPer"></div>
+            <div id="compararChiPer"></div>
+            <div id="compararMexPer"></div>
         </article>
     </section>
 
