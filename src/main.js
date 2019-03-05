@@ -5,9 +5,6 @@ window.onload = function() {
     showCountryPer();
     showCountryAm();
     indAmBra();
-    indAmChi();
-    indAmMex();
-    indAmPer();
 };
 
 function showCountryAm() {
@@ -34,7 +31,7 @@ function showCountryAm() {
 }
 
 function indAmBra() {
-    let countryDivBra = document.getElementById("conteudoamBra");
+    let countryDivBra = document.getElementById("conteudoam-ordem");
     countryDivBra.innerHTML = `
     ${getCountrysBra().map((indicador)=>`
     <option>${indicador["indicatorName"]}</option>
@@ -42,70 +39,98 @@ function indAmBra() {
     `
 }
 
-// function minMaxAmBra(){
-//     let w = document.getElementById("conteudoamBra").selectedIndex;
-//     let z = document.getElementById("conteudoamBra").options;
-//     let indicator = z[w].textContent;
-//     let resultTotalBraAm = document.getElementById("result-am-bra");
-//     let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === indicator)
-//     let indicatorBra = getCountrysBra().map(indic => indic["indicatorName"])
-//     for (indice in indicatorBra) {
-//         let indicatorBraTotal = indicatorBra[indice]
-//         let dataBra = getCountrysBra().map(indic => indic.data)
-//         for (datas of dataBra) {
-//             for (dataTotal in datas) {
-//                 let dataTotalBra = dataTotal[datas]
-//                 console.log(dataTotalBra)
-//             if(indicator === indicatorBraTotal) {
-//                 resultTotalBraAm.innerHTML = "Valor do índice: " + Math.max(poblacionBra.data)
-//                 //console.log(poblacionBra.data)
-//              }
-//          }
-//      }
-//   }
-// }
-
-function minMaxAmBra(){
-    let w = document.getElementById("conteudoamBra").selectedIndex;
-    let z = document.getElementById("conteudoamBra").options;
+function ordemAm(){
+    let x = document.getElementById("anoAm").selectedIndex;
+    let y = document.getElementById("anoAm").options;
+    let ano = y[x].textContent;
+    let w = document.getElementById("conteudoam-ordem").selectedIndex;
+    let z = document.getElementById("conteudoam-ordem").options;
     let indicator = z[w].textContent;
-    let resultTotalBraAm = document.getElementById("result-am-bra");
+    let resultTotalAm = document.getElementById("result-am");
     let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === indicator)
-    let anos = [poblacionBra.data[2007], poblacionBra.data[2008], poblacionBra.data[2009], poblacionBra.data[2010], poblacionBra.data[2011],poblacionBra.data[2012],poblacionBra.data[2013], poblacionBra.data[2014], poblacionBra.data[2015], poblacionBra.data[2016],poblacionBra.data[2017]]
-    let max = anos.reduce(function(a,b){
-      return Math.max(a,b)
-    })
-    let min = anos.reduce(function(a,b){
-        return Math.min(a,b)
-      })
-      console.log(anos, min, max)
+    let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === indicator)
+    let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === indicator)
+    let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === indicator)
+    let anosAm = [
+    {
+    "pais":"Brasil",
+    "2007": poblacionBra.data[2007], 
+    "2008": poblacionBra.data[2008], 
+    "2009": poblacionBra.data[2009], 
+    "2010": poblacionBra.data[2010], 
+    "2011": poblacionBra.data[2011], 
+    "2012": poblacionBra.data[2012], 
+    "2013": poblacionBra.data[2013], 
+    "2014": poblacionBra.data[2014], 
+    "2015": poblacionBra.data[2015], 
+    "2015": poblacionBra.data[2016], 
+    "2017": poblacionBra.data[2017],
+    },
+    {
+    "pais": "Chile",
+    "2007": poblacionChi.data[2007], 
+    "2008": poblacionChi.data[2008], 
+    "2009": poblacionChi.data[2009], 
+    "2010": poblacionChi.data[2010], 
+    "2011": poblacionChi.data[2011], 
+    "2012": poblacionChi.data[2012], 
+    "2013": poblacionChi.data[2013], 
+    "2014": poblacionChi.data[2014], 
+    "2015": poblacionChi.data[2015], 
+    "2015": poblacionChi.data[2016], 
+    "2017": poblacionChi.data[2017],
+    },
+    {
+    "pais":"México",
+    "2007": poblacionMex.data[2007], 
+    "2008": poblacionMex.data[2008], 
+    "2009": poblacionMex.data[2009], 
+    "2010": poblacionMex.data[2010], 
+    "2011": poblacionMex.data[2011], 
+    "2012": poblacionMex.data[2012], 
+    "2013": poblacionMex.data[2013], 
+    "2014": poblacionMex.data[2014], 
+    "2015": poblacionMex.data[2015], 
+    "2015": poblacionMex.data[2016], 
+    "2017": poblacionMex.data[2017],
+    },
+    {
+    "pais": "Peru",
+    "2007": poblacionPer.data[2007], 
+    "2008": poblacionPer.data[2008], 
+    "2009": poblacionPer.data[2009], 
+    "2010": poblacionPer.data[2010], 
+    "2011": poblacionPer.data[2011], 
+    "2012": poblacionPer.data[2012], 
+    "2013": poblacionPer.data[2013], 
+    "2014": poblacionPer.data[2014], 
+    "2015": poblacionPer.data[2015], 
+    "2015": poblacionPer.data[2016], 
+    "2017": poblacionPer.data[2017],
+},
+];
 
+let ordenado = anosAm.sort((a,b) => {
+  if(a[ano] > b[ano]){
+   return 1;
+  }
+    return -1;
+ });
+//  if(ordenado[ano] === ""){
+//     resultTotalAm.innerHTML =`
+//    <p>Índice não definido</p> 
+//    `
+//  }else{
+resultTotalAm.innerHTML =`
+<p>País com índice máximo: ${ordenado[3].pais}</p>
+<p>Índice: ${ordenado[3][ano]}</p>
+<p>País com índice mínimo: ${ordenado[0].pais}</p>
+<p>Índice: ${ordenado[0][ano]}</p>
+`
+// }
 }
 
-function indAmChi(){
-    let countryDivChi = document.getElementById("conteudoamChi");
-    countryDivChi.innerHTML = `
-    ${getCountrysChi().map((indicador)=>`
-    <option>${indicador["indicatorName"]}</option>
-    `).join("")}
-    `
-}
-function indAmMex(){
-    let countryDivMex = document.getElementById("conteudoamMex");
-    countryDivMex.innerHTML = `
-    ${getCountrysMex().map((indicador)=>`
-    <option>${indicador["indicatorName"]}</option>
-    `).join("")}
-    `
-}
-function indAmPer(){
-    let countryDivPer = document.getElementById("conteudoamPer");
-    countryDivPer.innerHTML = `
-    ${getCountrysPer().map((indicador)=>`
-    <option>${indicador["indicatorName"]}</option>
-    `).join("")}
-    `
-}
+
 
 function filterBra() {
     let x = document.getElementById("anoBra").selectedIndex;
@@ -238,18 +263,6 @@ function showCountryBra() {
     `).join("")}
     `
 }
-
-// function maxBra() {
-//     let aux = []
-//     let indMaxBra = document.getElementById("ind-max-bra")
-//     let filtro = getCountrysBra().map(indic => indic.data)
-//     for (x in filtro) {
-//         aux.push(filtro[x])
-//     }
-//     let maxInd = Math.max(aux)
-//     console.log(maxInd)
-
-// }
 
 function filterChi() {
     let x = document.getElementById("anoChi").selectedIndex;

@@ -20,30 +20,36 @@
             <li><button type="button" value="MEX" data-tab-seleccionado="tabMexico" id="tabmex" class="tab">México</button></li>
             <li><button type="button" value="PER" data-tab-seleccionado="tabPeru" id="tabper" class="tab">Peru</button></li>
         </ul>
+        <main>
+            <div class="filter" id="filter"></div>
+            <article id="am" class="conteudo">
+                <h3>América Latina</h3>
+                <div id="conteudoam"></div>
+                <p>Países com índices Mínimo e Máximo dos indicadores</p>
+                <select id="conteudoam-ordem"></select>
+                <select class="option-year" id="anoAm">
+                <option value="2007" >2007</option>
+                <option value="2008" >2008</option>
+                <option value="2009" >2009</option>
+                <option value="2010" >2010</option>
+                <option value="2011" >2011</option>
+                <option value="2012" >2012</option>
+                <option value="2013" >2013</option>
+                <option value="2014" >2014</option>
+                <option value="2015" >2015</option>
+                <option value="2016" >2016</option>
+                <option value="2017" >2017</option>
+                <option value="none" selected>escolha o ano</option>
+            </select>
+                <button onclick="ordemAm()">OK</button>
+                <article id="result-am"></article>
 
-        <div class="filter" id="filter"></div>
-        <article id="am" class="conteudo">
-            <h3>América Latina</h3>
-            <div id="conteudoam"></div>
-            <p>Indices do Brasil</p>
-            <select id="conteudoamBra"></select>
-            <button onclick="minMaxAmBra()">OK</button>
-            <p id="result-am-bra"></p>
-            <p>Indices do Chile</p>
-            <select id="conteudoamChi"></select>
-            <button onclick="">OK</button>
-            <p>Indices do México</p>
-            <select id="conteudoamMex"></select>
-            <button onclick="">OK</button>
-            <p>Indices do Peru</p>
-            <select id="conteudoamPer"></select>
-            <button onclick="">OK</button>
 
-        </article>
-        <article id="brasil" class="conteudo">
-            <h3>Índices do Brasil</h3>
-            <span class="year">Ano</span>
-            <div class="componente">
+            </article>
+            <article id="brasil" class="conteudo">
+                <h3>Índices do Brasil</h3>
+                <div class="componente"></div>
+                <select id="conteudobrasil"></select>
                 <select class="option-year" id="anoBra">
         <option value="2007" >2007</option>
         <option value="2008" >2008</option>
@@ -58,19 +64,17 @@
         <option value="2017" >2017</option>
         <option value="none" selected>escolha o ano</option>
     </select>
-            </div>
-            <button onclick="filterBra()">OK</button>
-            <select id="conteudobrasil"></select>
-            <div id="resultBra"></div>
-            <button onclick="compararChiBra(); compararMexBra(); compararPerBra()">Comparar com os outros países</button>
-            <div id="compararChiBra"></div>
-            <div id="compararMexBra"></div>
-            <div id="compararPerBra"></div>
-        </article>
-        <article id="chile" class="conteudo">
-            <h3>Índices do Chile</h3>
-            <span class="year">Ano</span>
-            <div class="componente">
+                <button onclick="filterBra()">OK</button>
+                <div id="resultBra"></div>
+                <button onclick="compararChiBra(); compararMexBra(); compararPerBra()">Comparar com os outros países</button>
+                <div id="compararChiBra"></div>
+                <div id="compararMexBra"></div>
+                <div id="compararPerBra"></div>
+            </article>
+            <article id="chile" class="conteudo">
+                <h3>Índices do Chile</h3>
+                <div class="componente"></div>
+                <select id="conteudochile"></select>
                 <select class="option-year" id="anoChi">
         <option value="2007" >2007</option>
         <option value="2008" >2008</option>
@@ -85,19 +89,17 @@
         <option value="2017" >2017</option>
         <option value="none" selected>escolha o ano</option>
     </select>
-            </div>
-            <button onclick="filterChi()">OK</button>
-            <select id="conteudochile"></select>
-            <div id="resultChi"></div>
-            <button onclick="compararBraChi(); compararMexChi(); compararPerChi()">Comparar com os outros países</button>
-            <div id="compararBraChi"></div>
-            <div id="compararMexChi"></div>
-            <div id="compararPerChi"></div>
-        </article>
-        <article id="mexico" class="conteudo">
-            <h3>Índices do México</h3>
-            <span class="year">Ano</span>
-            <div class="componente">
+                <button onclick="filterChi()">OK</button>
+                <div id="resultChi"></div>
+                <button onclick="compararBraChi(); compararMexChi(); compararPerChi()">Comparar com os outros países</button>
+                <div id="compararBraChi"></div>
+                <div id="compararMexChi"></div>
+                <div id="compararPerChi"></div>
+            </article>
+            <article id="mexico" class="conteudo">
+                <h3>Índices do México</h3>
+                <div class="componente"></div>
+                <select id="conteudomexico"></select>
                 <select class="option-year" id="anoMex">
         <option value="2007" >2007</option>
         <option value="2008" >2008</option>
@@ -112,19 +114,17 @@
         <option value="2017" >2017</option>
         <option value="none" selected>escolha o ano</option>
     </select>
-            </div>
-            <button onclick="filterMex()">OK</button>
-            <select id="conteudomexico"></select>
-            <div id="resultMex"></div>
-            <button onclick="compararBraMex(); compararChiMex(); compararPerMex()">Comparar com os outros países</button>
-            <div id="compararBraMex"></div>
-            <div id="compararChiMex"></div>
-            <div id="compararPerMex"></div>
-        </article>
-        <article id="peru" class="conteudo">
-            <h3>Índices do Peru</h3>
-            <span class="year">Ano</span>
-            <div class="componente">
+                <button onclick="filterMex()">OK</button>
+                <div id="resultMex"></div>
+                <button onclick="compararBraMex(); compararChiMex(); compararPerMex()">Comparar com os outros países</button>
+                <div id="compararBraMex"></div>
+                <div id="compararChiMex"></div>
+                <div id="compararPerMex"></div>
+            </article>
+            <article id="peru" class="conteudo">
+                <h3>Índices do Peru</h3>
+                <div class="componente"></div>
+                <select id="conteudoperu"></select>
                 <select class="option-year" id="anoPer">
         <option value="2007" >2007</option>
         <option value="2008" >2008</option>
@@ -139,16 +139,15 @@
         <option value="2017" >2017</option>
         <option value="none" selected>escolha o ano</option>
     </select>
-            </div>
-            <button onclick="filterPer()">OK</button>
-            <select id="conteudoperu"></select>
-            <div id="resultPer"></div>
-            <button onclick="compararBraPer(); compararChiPer(); compararMexPer()">Comparar com os outros países</button>
-            <div id="compararBraPer"></div>
-            <div id="compararChiPer"></div>
-            <div id="compararMexPer"></div>
-        </article>
+                <button onclick="filterPer()">OK</button>
+                <div id="resultPer"></div>
+                <button onclick="compararBraPer(); compararChiPer(); compararMexPer()">Comparar com os outros países</button>
+                <div id="compararBraPer"></div>
+                <div id="compararChiPer"></div>
+                <div id="compararMexPer"></div>
+            </article>
     </section>
+    </main>
 
     <script src="./data/worldbank/worldbank.js"></script>
     <script src="main.js"></script>
