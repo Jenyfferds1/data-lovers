@@ -10,7 +10,7 @@ body {
     align-items: center;
 }
 
-.conteudoTab {
+.conteudo-tab {
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -21,13 +21,9 @@ body {
 
 .tab {
     color: white;
-    background-color: blue;
+    background-color: rgb(240, 83, 109);
     border-radius: 5px;
     border-bottom: none;
     padding: 10px;
     width: 100px;
-}
-
-.tabela {
-    border: 1px;
 }

@@ -3,12 +3,38 @@ window.onload = function() {
     showCountryChi();
     showCountryMex();
     showCountryPer();
-    showCountryAm();
-    indAmBra();
+    // showCountryAm();
+    // indAmBra();
 };
 
-function showCountryAm() {
-    let countryDiv = document.getElementById("conteudoam");
+// function showCountryAm() {
+//     let countryDiv = document.getElementById("conteudo-am");
+//     let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === "Población, mujeres")
+//     let poblacionDataBra = poblacionBra.data["2017"]
+//     let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === "Población, mujeres")
+//     let poblacionDataChi = poblacionChi.data["2017"]
+//     let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === "Población, mujeres")
+//     let poblacionDataMex = poblacionMex.data["2017"]
+//     let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === "Población, mujeres")
+//     let poblacionDataPer = poblacionPer.data["2017"]
+//     countryDiv.innerHTML = `
+//     <p>População de mulheres na América Latina em 2017</p>
+//     <p>População de mulheres no Brasil<p/>
+//     <p>${poblacionDataBra}</p>
+//     <p>População de mulheres no Chile<p/>
+//     <p>${poblacionDataChi}</p>
+//     <p>População de mulheres no México<p/>
+//     <p>${poblacionDataMex}</p>
+//     <p>População de mulheres no Peru<p/>
+//     <p>${poblacionDataPer}</p>
+//     `
+// }
+
+
+google.charts.load('current', { packages: ['corechart', 'bar'] });
+google.charts.setOnLoadCallback(drawMaterial);
+
+function drawMaterial() {
     let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === "Población, mujeres")
     let poblacionDataBra = poblacionBra.data["2017"]
     let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === "Población, mujeres")
@@ -17,31 +43,45 @@ function showCountryAm() {
     let poblacionDataMex = poblacionMex.data["2017"]
     let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === "Población, mujeres")
     let poblacionDataPer = poblacionPer.data["2017"]
-    countryDiv.innerHTML = `
-    <p>Población, mujeres na América Latina em 2017</p>
-    <p>Población, mujeres Brasil<p/>
-    <p>${poblacionDataBra}</p>
-    <p>Población, mujeres Chile<p/>
-    <p>${poblacionDataChi}</p>
-    <p>Población, mujeres Mexico<p/>
-    <p>${poblacionDataMex}</p>
-    <p>Población, mujeres Peru<p/>
-    <p>${poblacionDataPer}</p>
-    `
+    let data = google.visualization.arrayToDataTable([
+        ['Países', 'População de 2017', { role: 'style' }, { role: 'annotation' }],
+        ['Brasil', poblacionDataBra, 'pink', poblacionDataBra],
+        ['Chile', poblacionDataChi, 'pink', poblacionDataChi],
+        ['México', poblacionDataMex, 'pink', poblacionDataMex],
+        ['Peru', poblacionDataPer, 'pink', poblacionDataPer]
+    ]);
+
+    let materialOptions = {
+        chart: {
+            title: 'População de mulheres em 2017'
+        },
+        hAxis: {
+            title: 'Total População de Mulheres',
+            minValue: 0,
+        },
+        vAxis: {
+            title: 'População de mulheres em 2017'
+        },
+        bars: 'horizontal'
+    };
+    let materialChart = new google.charts.Bar(document.getElementById('chart_div'));
+    materialChart.draw(data, materialOptions);
 }
 
-function indAmBra() {
-    let countryDivBra = document.getElementById("conteudoam-ordem");
-    countryDivBra.innerHTML = `
-    ${getCountrysBra().map((indicador)=>`
-    <option>${indicador["indicatorName"]}</option>
-    `).join("")}
-    `
-}
 
-function ordemAm(){
-    let x = document.getElementById("anoAm").selectedIndex;
-    let y = document.getElementById("anoAm").options;
+
+// function indAmBra() {
+//     let countryDivBra = document.getElementById("conteudoam-ordem");
+//     countryDivBra.innerHTML = `
+//     ${getCountrysBra().map((indicador)=>`
+//     <option>${indicador["indicatorName"]}</option>
+//     `).join("")}
+//     `
+// }
+
+function ordemAm() {
+    let x = document.getElementById("year-am").selectedIndex;
+    let y = document.getElementById("year-am").options;
     let ano = y[x].textContent;
     let w = document.getElementById("conteudoam-ordem").selectedIndex;
     let z = document.getElementById("conteudoam-ordem").options;
@@ -51,95 +91,94 @@ function ordemAm(){
     let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === indicator)
     let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === indicator)
     let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === indicator)
-    let anosAm = [
-    {
-    "pais":"Brasil",
-    "2007": poblacionBra.data[2007], 
-    "2008": poblacionBra.data[2008], 
-    "2009": poblacionBra.data[2009], 
-    "2010": poblacionBra.data[2010], 
-    "2011": poblacionBra.data[2011], 
-    "2012": poblacionBra.data[2012], 
-    "2013": poblacionBra.data[2013], 
-    "2014": poblacionBra.data[2014], 
-    "2015": poblacionBra.data[2015], 
-    "2015": poblacionBra.data[2016], 
-    "2017": poblacionBra.data[2017],
-    },
-    {
-    "pais": "Chile",
-    "2007": poblacionChi.data[2007], 
-    "2008": poblacionChi.data[2008], 
-    "2009": poblacionChi.data[2009], 
-    "2010": poblacionChi.data[2010], 
-    "2011": poblacionChi.data[2011], 
-    "2012": poblacionChi.data[2012], 
-    "2013": poblacionChi.data[2013], 
-    "2014": poblacionChi.data[2014], 
-    "2015": poblacionChi.data[2015], 
-    "2015": poblacionChi.data[2016], 
-    "2017": poblacionChi.data[2017],
-    },
-    {
-    "pais":"México",
-    "2007": poblacionMex.data[2007], 
-    "2008": poblacionMex.data[2008], 
-    "2009": poblacionMex.data[2009], 
-    "2010": poblacionMex.data[2010], 
-    "2011": poblacionMex.data[2011], 
-    "2012": poblacionMex.data[2012], 
-    "2013": poblacionMex.data[2013], 
-    "2014": poblacionMex.data[2014], 
-    "2015": poblacionMex.data[2015], 
-    "2015": poblacionMex.data[2016], 
-    "2017": poblacionMex.data[2017],
-    },
-    {
-    "pais": "Peru",
-    "2007": poblacionPer.data[2007], 
-    "2008": poblacionPer.data[2008], 
-    "2009": poblacionPer.data[2009], 
-    "2010": poblacionPer.data[2010], 
-    "2011": poblacionPer.data[2011], 
-    "2012": poblacionPer.data[2012], 
-    "2013": poblacionPer.data[2013], 
-    "2014": poblacionPer.data[2014], 
-    "2015": poblacionPer.data[2015], 
-    "2015": poblacionPer.data[2016], 
-    "2017": poblacionPer.data[2017],
-},
-];
+    let yearsAm = [{
+            "country": "Brasil",
+            "2007": poblacionBra.data[2007],
+            "2008": poblacionBra.data[2008],
+            "2009": poblacionBra.data[2009],
+            "2010": poblacionBra.data[2010],
+            "2011": poblacionBra.data[2011],
+            "2012": poblacionBra.data[2012],
+            "2013": poblacionBra.data[2013],
+            "2014": poblacionBra.data[2014],
+            "2015": poblacionBra.data[2015],
+            "2015": poblacionBra.data[2016],
+            "2017": poblacionBra.data[2017],
+        },
+        {
+            "country": "Chile",
+            "2007": poblacionChi.data[2007],
+            "2008": poblacionChi.data[2008],
+            "2009": poblacionChi.data[2009],
+            "2010": poblacionChi.data[2010],
+            "2011": poblacionChi.data[2011],
+            "2012": poblacionChi.data[2012],
+            "2013": poblacionChi.data[2013],
+            "2014": poblacionChi.data[2014],
+            "2015": poblacionChi.data[2015],
+            "2015": poblacionChi.data[2016],
+            "2017": poblacionChi.data[2017],
+        },
+        {
+            "country": "México",
+            "2007": poblacionMex.data[2007],
+            "2008": poblacionMex.data[2008],
+            "2009": poblacionMex.data[2009],
+            "2010": poblacionMex.data[2010],
+            "2011": poblacionMex.data[2011],
+            "2012": poblacionMex.data[2012],
+            "2013": poblacionMex.data[2013],
+            "2014": poblacionMex.data[2014],
+            "2015": poblacionMex.data[2015],
+            "2015": poblacionMex.data[2016],
+            "2017": poblacionMex.data[2017],
+        },
+        {
+            "country": "Peru",
+            "2007": poblacionPer.data[2007],
+            "2008": poblacionPer.data[2008],
+            "2009": poblacionPer.data[2009],
+            "2010": poblacionPer.data[2010],
+            "2011": poblacionPer.data[2011],
+            "2012": poblacionPer.data[2012],
+            "2013": poblacionPer.data[2013],
+            "2014": poblacionPer.data[2014],
+            "2015": poblacionPer.data[2015],
+            "2015": poblacionPer.data[2016],
+            "2017": poblacionPer.data[2017],
+        },
+    ];
 
-let ordenado = anosAm.sort((a,b) => {
-  if(a[ano] > b[ano]){
-   return 1;
-  }
-    return -1;
- });
-//  if(ordenado[ano] === ""){
-//     resultTotalAm.innerHTML =`
-//    <p>Índice não definido</p> 
-//    `
-//  }else{
-resultTotalAm.innerHTML =`
-<p>País com índice máximo: ${ordenado[3].pais}</p>
+    let ordenado = yearsAm.sort((a, b) => {
+        if (a[ano] > b[ano]) {
+            return 1;
+        }
+        return -1;
+    });
+    //  if(ordenado[ano] === ""){
+    //     resultTotalAm.innerHTML =`
+    //    <p>Índice não definido</p> 
+    //    `
+    //  }else{
+    resultTotalAm.innerHTML = `
+<p>País com índice máximo: ${ordenado[3].country}</p>
 <p>Índice: ${ordenado[3][ano]}</p>
-<p>País com índice mínimo: ${ordenado[0].pais}</p>
+<p>País com índice mínimo: ${ordenado[0].country}</p>
 <p>Índice: ${ordenado[0][ano]}</p>
 `
-// }
+        // }
 }
 
 
 
 function filterBra() {
-    let x = document.getElementById("anoBra").selectedIndex;
-    let y = document.getElementById("anoBra").options;
+    let x = document.getElementById("year-bra").selectedIndex;
+    let y = document.getElementById("year-bra").options;
     let ano = y[x].textContent;
-    let w = document.getElementById("conteudobrasil").selectedIndex;
-    let z = document.getElementById("conteudobrasil").options;
+    let w = document.getElementById("conteudo-brasil").selectedIndex;
+    let z = document.getElementById("conteudo-brasil").options;
     let indicator = z[w].textContent;
-    let resultTotalBra = document.getElementById("resultBra");
+    let resultTotalBra = document.getElementById("result-bra");
     let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === indicator)
     let indicatorBra = getCountrysBra().map(indic => indic["indicatorName"])
     for (indice in indicatorBra) {
@@ -162,11 +201,11 @@ function filterBra() {
 }
 
 function compararChiBra() {
-    let x = document.getElementById("anoBra").selectedIndex;
-    let y = document.getElementById("anoBra").options;
+    let x = document.getElementById("year-bra").selectedIndex;
+    let y = document.getElementById("year-bra").options;
     let ano = y[x].textContent;
-    let w = document.getElementById("conteudobrasil").selectedIndex;
-    let z = document.getElementById("conteudobrasil").options;
+    let w = document.getElementById("conteudo-brasil").selectedIndex;
+    let z = document.getElementById("conteudo-brasil").options;
     let indicator = z[w].textContent;
     let resultTotalComp = document.getElementById("compararChiBra");
     let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === indicator)
@@ -191,11 +230,11 @@ function compararChiBra() {
 }
 
 function compararMexBra() {
-    let x = document.getElementById("anoBra").selectedIndex;
-    let y = document.getElementById("anoBra").options;
+    let x = document.getElementById("year-bra").selectedIndex;
+    let y = document.getElementById("year-bra").options;
     let ano = y[x].textContent;
-    let w = document.getElementById("conteudobrasil").selectedIndex;
-    let z = document.getElementById("conteudobrasil").options;
+    let w = document.getElementById("conteudo-brasil").selectedIndex;
+    let z = document.getElementById("conteudo-brasil").options;
     let indicator = z[w].textContent;
     let resultTotalComp = document.getElementById("compararMexBra");
     let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === indicator)
@@ -220,11 +259,11 @@ function compararMexBra() {
 }
 
 function compararPerBra() {
-    let x = document.getElementById("anoBra").selectedIndex;
-    let y = document.getElementById("anoBra").options;
+    let x = document.getElementById("year-bra").selectedIndex;
+    let y = document.getElementById("year-bra").options;
     let ano = y[x].textContent;
-    let w = document.getElementById("conteudobrasil").selectedIndex;
-    let z = document.getElementById("conteudobrasil").options;
+    let w = document.getElementById("conteudo-brasil").selectedIndex;
+    let z = document.getElementById("conteudo-brasil").options;
     let indicator = z[w].textContent;
     let resultTotalComp = document.getElementById("compararPerBra");
     let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === indicator)
@@ -256,7 +295,7 @@ function getCountrysBra() {
 }
 
 function showCountryBra() {
-    let countryDiv = document.getElementById("conteudobrasil");
+    let countryDiv = document.getElementById("conteudo-brasil");
     countryDiv.innerHTML = `
     ${getCountrysBra().map((indicador)=>`
     <option>${indicador["indicatorName"]}</option>
@@ -265,13 +304,13 @@ function showCountryBra() {
 }
 
 function filterChi() {
-    let x = document.getElementById("anoChi").selectedIndex;
-    let y = document.getElementById("anoChi").options;
+    let x = document.getElementById("year-chi").selectedIndex;
+    let y = document.getElementById("year-chi").options;
     let ano = y[x].textContent;
-    let w = document.getElementById("conteudochile").selectedIndex;
-    let z = document.getElementById("conteudochile").options;
+    let w = document.getElementById("conteudo-chile").selectedIndex;
+    let z = document.getElementById("conteudo-chile").options;
     let indicator = z[w].textContent;
-    let resultTotalChi = document.getElementById("resultChi");
+    let resultTotalChi = document.getElementById("result-chi");
     let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === indicator)
     let indicatorChi = getCountrysChi().map(indic => indic["indicatorName"])
     for (indice in indicatorChi) {
@@ -294,11 +333,11 @@ function filterChi() {
 }
 
 function compararBraChi(){
-    let x = document.getElementById("anoChi").selectedIndex;
-    let y = document.getElementById("anoChi").options;
+    let x = document.getElementById("year-chi").selectedIndex;
+    let y = document.getElementById("year-chi").options;
     let ano = y[x].textContent;
-    let w = document.getElementById("conteudochile").selectedIndex;
-    let z = document.getElementById("conteudochile").options;
+    let w = document.getElementById("conteudo-chile").selectedIndex;
+    let z = document.getElementById("conteudo-chile").options;
     let indicator = z[w].textContent;
     let resultTotalComp = document.getElementById("compararBraChi"); 
     let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === indicator)
@@ -322,11 +361,11 @@ function compararBraChi(){
 }
 
 function compararMexChi(){
-    let x = document.getElementById("anoChi").selectedIndex;
-    let y = document.getElementById("anoChi").options;
+    let x = document.getElementById("year-chi").selectedIndex;
+    let y = document.getElementById("year-chi").options;
     let ano = y[x].textContent;
-    let w = document.getElementById("conteudochile").selectedIndex;
-    let z = document.getElementById("conteudochile").options;
+    let w = document.getElementById("conteudo-chile").selectedIndex;
+    let z = document.getElementById("conteudo-chile").options;
     let indicator = z[w].textContent;
     let resultTotalComp = document.getElementById("compararMexChi");
     let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === indicator)
@@ -351,11 +390,11 @@ function compararMexChi(){
 }
 
 function compararPerChi(){
-    let x = document.getElementById("anoChi").selectedIndex;
-    let y = document.getElementById("anoChi").options;
+    let x = document.getElementById("year-chi").selectedIndex;
+    let y = document.getElementById("year-chi").options;
     let ano = y[x].textContent;
-    let w = document.getElementById("conteudochile").selectedIndex;
-    let z = document.getElementById("conteudochile").options;
+    let w = document.getElementById("conteudo-chile").selectedIndex;
+    let z = document.getElementById("conteudo-chile").options;
     let indicator = z[w].textContent;
     let resultTotalComp = document.getElementById("compararPerChi");
     let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === indicator)
@@ -385,7 +424,7 @@ function getCountrysChi() {
 
 
 function showCountryChi() {
-    let countryDiv = document.getElementById("conteudochile");
+    let countryDiv = document.getElementById("conteudo-chile");
     countryDiv.innerHTML = `
     ${getCountrysChi().map((indicador)=>`
     <option>${indicador["indicatorName"]}</option>
@@ -395,13 +434,13 @@ function showCountryChi() {
 
 
 function filterMex() {
-    let x = document.getElementById("anoMex").selectedIndex;
-    let y = document.getElementById("anoMex").options;
+    let x = document.getElementById("year-mex").selectedIndex;
+    let y = document.getElementById("year-mex").options;
     let ano = y[x].textContent;
-    let w = document.getElementById("conteudomexico").selectedIndex;
-    let z = document.getElementById("conteudomexico").options;
+    let w = document.getElementById("conteudo-mexico").selectedIndex;
+    let z = document.getElementById("conteudo-mexico").options;
     let indicator = z[w].textContent;
-    let resultTotalMex = document.getElementById("resultMex");
+    let resultTotalMex = document.getElementById("result-mex");
     let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === indicator)
     let indicatroMex = getCountrysMex().map(indic => indic["indicatorName"])
     for (indice in indicatroMex) {
@@ -424,11 +463,11 @@ function filterMex() {
 }
 
 function compararBraMex(){
-    let x = document.getElementById("anoMex").selectedIndex;
-    let y = document.getElementById("anoMex").options;
+    let x = document.getElementById("year-mex").selectedIndex;
+    let y = document.getElementById("year-mex").options;
     let ano = y[x].textContent;
-    let w = document.getElementById("conteudomexico").selectedIndex;
-    let z = document.getElementById("conteudomexico").options;
+    let w = document.getElementById("conteudo-mexico").selectedIndex;
+    let z = document.getElementById("conteudo-mexico").options;
     let indicator = z[w].textContent;
     let resultTotalComp = document.getElementById("compararBraMex");
     let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === indicator)
@@ -451,11 +490,11 @@ function compararBraMex(){
 }
 
 function compararChiMex(){
-    let x = document.getElementById("anoMex").selectedIndex;
-    let y = document.getElementById("anoMex").options;
+    let x = document.getElementById("year-mex").selectedIndex;
+    let y = document.getElementById("year-mex").options;
     let ano = y[x].textContent;
-    let w = document.getElementById("conteudomexico").selectedIndex;
-    let z = document.getElementById("conteudomexico").options;
+    let w = document.getElementById("conteudo-mexico").selectedIndex;
+    let z = document.getElementById("conteudo-mexico").options;
     let indicator = z[w].textContent;
     let resultTotalComp = document.getElementById("compararChiMex");
     let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === indicator)
@@ -480,11 +519,11 @@ function compararChiMex(){
 }
 
 function compararPerMex(){
-    let x = document.getElementById("anoMex").selectedIndex;
-    let y = document.getElementById("anoMex").options;
+    let x = document.getElementById("year-mex").selectedIndex;
+    let y = document.getElementById("year-mex").options;
     let ano = y[x].textContent;
-    let w = document.getElementById("conteudomexico").selectedIndex;
-    let z = document.getElementById("conteudomexico").options;
+    let w = document.getElementById("conteudo-mexico").selectedIndex;
+    let z = document.getElementById("conteudo-mexico").options;
     let indicator = z[w].textContent;
     let resultTotalComp = document.getElementById("compararPerMex");
     let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === indicator)
@@ -514,7 +553,7 @@ function getCountrysMex() {
 
 
 function showCountryMex() {
-    let countryDiv = document.getElementById("conteudomexico");
+    let countryDiv = document.getElementById("conteudo-mexico");
     countryDiv.innerHTML = `
     ${getCountrysMex().map((indicador)=>`
     <option>${indicador["indicatorName"]}</option>
@@ -524,13 +563,13 @@ function showCountryMex() {
 
 
 function filterPer() {
-    let x = document.getElementById("anoPer").selectedIndex;
-    let y = document.getElementById("anoPer").options;
+    let x = document.getElementById("year-per").selectedIndex;
+    let y = document.getElementById("year-per").options;
     let ano = y[x].textContent;
-    let w = document.getElementById("conteudoperu").selectedIndex;
-    let z = document.getElementById("conteudoperu").options;
+    let w = document.getElementById("conteudo-peru").selectedIndex;
+    let z = document.getElementById("conteudo-peru").options;
     let indicator = z[w].textContent;
-    let resultTotalPer = document.getElementById("resultPer");
+    let resultTotalPer = document.getElementById("result-per");
     let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === indicator)
     let indicatorPer = getCountrysPer().map(indic => indic["indicatorName"])
     for (indice in indicatorPer) {
@@ -553,11 +592,11 @@ function filterPer() {
 }
 
 function compararBraPer(){
-    let x = document.getElementById("anoPer").selectedIndex;
-    let y = document.getElementById("anoPer").options;
+    let x = document.getElementById("year-per").selectedIndex;
+    let y = document.getElementById("year-per").options;
     let ano = y[x].textContent;
-    let w = document.getElementById("conteudoperu").selectedIndex;
-    let z = document.getElementById("conteudoperu").options;
+    let w = document.getElementById("conteudo-peru").selectedIndex;
+    let z = document.getElementById("conteudo-peru").options;
     let indicator = z[w].textContent;
     let resultTotalComp = document.getElementById("compararBraPer");
     let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === indicator)
@@ -580,11 +619,11 @@ function compararBraPer(){
 }
 
 function compararChiPer(){
-    let x = document.getElementById("anoPer").selectedIndex;
-    let y = document.getElementById("anoPer").options;
+    let x = document.getElementById("year-per").selectedIndex;
+    let y = document.getElementById("year-per").options;
     let ano = y[x].textContent;
-    let w = document.getElementById("conteudoperu").selectedIndex;
-    let z = document.getElementById("conteudoperu").options;
+    let w = document.getElementById("conteudo-peru").selectedIndex;
+    let z = document.getElementById("conteudo-peru").options;
     let indicator = z[w].textContent;
     let resultTotalComp = document.getElementById("compararChiPer");
     let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === indicator)
@@ -607,11 +646,11 @@ function compararChiPer(){
 }
 
 function compararMexPer(){
-    let x = document.getElementById("anoPer").selectedIndex;
-    let y = document.getElementById("anoPer").options;
+    let x = document.getElementById("year-per").selectedIndex;
+    let y = document.getElementById("year-per").options;
     let ano = y[x].textContent;
-    let w = document.getElementById("conteudoperu").selectedIndex;
-    let z = document.getElementById("conteudoperu").options;
+    let w = document.getElementById("conteudo-peru").selectedIndex;
+    let z = document.getElementById("conteudo-peru").options;
     let indicator = z[w].textContent;
     let resultTotalComp = document.getElementById("compararMexPer");
     let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === indicator)
@@ -638,7 +677,7 @@ function getCountrysPer() {
 }
 
 function showCountryPer() {
-    let countryDiv = document.getElementById("conteudoperu");
+    let countryDiv = document.getElementById("conteudo-peru");
     countryDiv.innerHTML = `
     ${getCountrysPer().map((indicador)=>`
     <option>${indicador["indicatorName"]}</option>
@@ -655,7 +694,7 @@ function mostraOcultar(e) {
     let peru = document.getElementById("peru");
     let am = document.getElementById("am");
 
-    if (tabSeleccionado === "tabAm") {
+    if (tabSeleccionado === "tab-am") {
         am.style.display = 'block';
         chile.style.display = 'none';
         mexico.style.display = 'none';
@@ -664,7 +703,7 @@ function mostraOcultar(e) {
 
 
     }
-    if (tabSeleccionado === "tabBrasil") {
+    if (tabSeleccionado === "tab-brasil") {
         am.style.display = 'none';
         chile.style.display = 'none';
         mexico.style.display = 'none';
@@ -672,7 +711,7 @@ function mostraOcultar(e) {
         brasil.style.display = 'block';
 
     }
-    if (tabSeleccionado === "tabChile") {
+    if (tabSeleccionado === "tab-chile") {
         am.style.display = 'none';
         brasil.style.display = 'none';
         mexico.style.display = 'none';
@@ -681,7 +720,7 @@ function mostraOcultar(e) {
 
 
     }
-    if (tabSeleccionado === "tabMexico") {
+    if (tabSeleccionado === "tab-mexico") {
         am.style.display = 'none';
         chile.style.display = 'none';
         brasil.style.display = 'none';
@@ -689,7 +728,7 @@ function mostraOcultar(e) {
         mexico.style.display = 'block';
 
     }
-    if (tabSeleccionado === "tabPeru") {
+    if (tabSeleccionado === "tab-peru") {
         am.style.display = 'none';
         chile.style.display = 'none';
         mexico.style.display = 'none';

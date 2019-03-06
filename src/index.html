@@ -5,29 +5,127 @@
     <meta charset="utf-8">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+
 </head>
 
 <body>
-    <div id="root"></div>
-    <section id="sectionInitial">
-        <h1 class="title">EDUCAM</h1>
-    </section>
-    <section class="seccionCont">
-        <ul class="conteudoTab">
-            <li><button type="button" value="AM" data-tab-seleccionado="tabAm" id="tabam" class="tab">América Latina</button></li>
-            <li><button type="button" value="BRA" data-tab-seleccionado="tabBrasil" id="tabbra" class="tab">Brasil</button></li>
-            <li><button type="button" value="CHI" data-tab-seleccionado="tabChile" id="tabchi" class="tab">Chile</button></li>
-            <li><button type="button" value="MEX" data-tab-seleccionado="tabMexico" id="tabmex" class="tab">México</button></li>
-            <li><button type="button" value="PER" data-tab-seleccionado="tabPeru" id="tabper" class="tab">Peru</button></li>
-        </ul>
-        <main>
-            <div class="filter" id="filter"></div>
-            <article id="am" class="conteudo">
-                <h3>América Latina</h3>
-                <div id="conteudoam"></div>
-                <p>Países com índices Mínimo e Máximo dos indicadores</p>
-                <select id="conteudoam-ordem"></select>
-                <select class="option-year" id="anoAm">
+    <header>
+        <div id="root"></div>
+        <section id="section-initial">
+            <h1 class="title">EDUCAM</h1>
+        </section>
+        <section class="section-cont">
+            <ul class="conteudo-tab">
+                <li><button type="button" value="AM" data-tab-seleccionado="tab-am" id="tab-am" class="tab">América Latina</button></li>
+                <li><button type="button" value="BRA" data-tab-seleccionado="tab-brasil" id="tab-bra" class="tab">Brasil</button></li>
+                <li><button type="button" value="CHI" data-tab-seleccionado="tab-chile" id="tab-chi" class="tab">Chile</button></li>
+                <li><button type="button" value="MEX" data-tab-seleccionado="tab-mexico" id="tab-mex" class="tab">México</button></li>
+                <li><button type="button" value="PER" data-tab-seleccionado="tab-peru" id="tab-per" class="tab">Peru</button></li>
+            </ul>
+        </section>
+    </header>
+    <main>
+        <div class="filter" id="filter"></div>
+        <article id="am" class="conteudo">
+            <h3>América Latina</h3>
+            <div id="chart_div"></div>
+            <article id="conteudo-am"></article>
+            <p>Países com índices Mínimo e Máximo dos indicadores voltados a educação</p>
+            <select id="conteudoam-ordem">
+                <option>Fuerza laboral con educación intermedia (% del total)</option>
+                <option>Fuerza laboral con educación intermedia, varones (% de la fuerza laboral masculina)</option>
+                <option>Fuerza laboral con educación intermedia, mujeres (% de la fuerza laboral femenina)</option>
+                <option>Tasa de participación en la fuerza laboral, total (% de la población total mayor de 15 años) (estimación nacional)</option>
+                <option>Tasa de participación en la fuerza laboral, varones (% de la población masculina mayor de 15 años) (estimación nacional)</option>
+                <option>Proporcin de tasas de participacin laboral femenina y masculina (%) (estimación modelado OIT)</option>
+                <option>Proporción de participación en la fuerza laboral de mujeres y varones (%) (estimación nacional)</option>
+                <option>Tasa de población activa, mujeres (% de la población femenina mayor de 15 años) (estimación modelado OIT)</option>
+                <option>Tasa de participación en la fuerza laboral, mujeres (% de la población femenina mayor de 15 años) (estimación nacional)</option>
+                <option>Fuerza laboral con educación básica (% del total)</option>
+                <option>Fuerza laboral con educación básica, varones (% de la fuerza laboral masculina)</option>
+                <option>Fuerza laboral con educación básica, mujeres (% de la fuerza laboral femenina)</option>
+                <option>Fuerza laboral con educación avanzada (% del total)</option>
+                <option>Fuerza laboral con educación avanzada, varones (% de la fuerza laboral masculina)</option>
+                <option>Fuerza laboral con educación avanzada, mujeres (% de la fuerza laboral femenina)</option>
+                <option>Tasa de participación en la fuerza laboral, total (% del total de la población entre 15-64 años) (estimación modelado OIT)</option>
+                <option>Tasa de participación en la fuerza laboral, hombres (% de la población masculina entre 15-64 años) (estimación modelado OIT)</option>
+                <option>Tasa de participación en la fuerza laboral, mujeres (% de la población femenina entre 15-64 años) (estimación modelado OIT)</option>
+                <option>Tasa de participación en la fuerza laboral de personas entre 15 y 24 años; total (%) (estimación modelado OIT)</option>
+                <option>Tasa de participación en la fuerza laboral, de 15 a 24 años, total (%) (estimación nacional)</option>
+                <option>Tasa de participación en la fuerza laboral, hombres (% de la población masculina entre 15-24 años) (estimación modelado OIT)</option>
+                <option>Tasa de participación en la fuerza laboral, de 15 a 24 años, varones (%) (estimación nacional)</option>
+                <option>Tasa de participación en la fuerza laboral, mujeres (% de la población femenina entre 15-24 años) (estimación modelado OIT)</option>
+                <option>Tasa de participación en la fuerza laboral, de 15 a 24 años, mujeres (%) (estimación nacional)</option>
+                <option>Empleados de servicios, mujeres (% del empleo femenino)</option>
+                <option>Proporción de escaños ocupados por mujeres en los parlamentos nacionales (%)</option>
+                <option>Población, mujeres (% del total)</option>
+                <option>Población, mujeres</option>
+                <option>Transición a la escuela secundaria, mujeres (%)</option>
+                <option>Inscripción escolar, nivel secundario, mujeres (% neto)</option>
+                <option>Inscripción escolar, nivel secundario, mujeres (% bruto)</option>
+                <option>Educación de nivel secundario, alumnos en programas vocacionales (% de mujeres)</option>
+                <option>Educación de nivel secundario, alumnos en programas de educación general (% de mujeres)</option>
+                <option>Educación de nivel secundario, alumnos (% de mujeres)</option>
+                <option>Nivel de instrucción, al menos ciclo superior de la escuela secundaria completo, población de más de 25 años, mujeres (%) (acumulativo)</option>
+                <option>Nivel de instrucción, al menos escuela de nivel posterior a la secundaria completa, población de más de 25 años, mujeres (%) (acumulativo)</option>
+                <option>Nivel de instrucción, al menos ciclo inferior de la escuela secundaria completo, población de más de 25 años, mujeres (%) (acumulativo)</option>
+                <option>Tasa de finalización del ciclo inferior de la educación secundaria, mujeres (% del grupo etario pertinente)</option>
+                <option>Total de inscripciones, nivel primario, mujeres (% neto)</option>
+                <option>Educación de nivel primario, maestras (% de mujeres)</option>
+                <option>Población de 80 años en adelante, mujeres (% de la población femenina)</option>
+                <option>Población de 75 a 79 años, mujeres (% de la población femenina)</option>
+                <option>Población de 70 a 74 años, mujeres (% de la población femenina)</option>
+                <option>Población de 65 años de edad y más, mujeres (% del total)</option>
+                <option>Población de 65 años de edad y más, mujeres</option>
+                <option>Población de 65 a 69 años, mujeres (% de la población femenina)</option>
+                <option>Población de 50 a 64 años, mujeres (% de la población femenina)</option>
+                <option>Población de 55 a 59 años, mujeres (% de la población femenina)</option>
+                <option>Población de 50 a 54 años, mujeres (% de la población femenina)</option>
+                <option>Población de 45 a 49 años, mujeres (% de la población femenina)</option>
+                <option>Población de 40 a 44 años, mujeres (% de la población femenina)</option>
+                <option>Población de 35 a 39 años, mujeres (% de la población femenina)</option>
+                <option>Población de 30 a 34 años, mujeres (% de la población femenina)</option>
+                <option>Población de 25 a 29 años, mujeres (% de la población femenina)</option>
+                <option>Población de 20 a 24 años, mujeres (% de la población femenina)</option>
+                <option>Población entre 15 y 64 años de edad, mujeres (% del total)</option>
+                <option>Población entre 15 y 64 años de edad, mujeres</option>
+                <option>Población de 15 a 19 años, mujeres (% de la población femenina)</option>
+                <option>Población de 10 a 14 años, mujeres (% de la población femenina)</option>
+                <option>Población de 5 a 9 años, mujeres (% de la población femenina)</option>
+                <option>Población entre 0 y 14 años de edad, mujeres (% del total)</option>
+                <option>Población entre 0 y 14 años de edad, mujeres</option>
+                <option>Población de 0 a 4 años, mujeres (% de la población femenina)</option>
+                <option>Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)</option>
+                <option>Alumnos de mayor edad, nivel primario, mujeres (% de matrícula de mujeres)</option>
+                <option>Perseverancia en la escuela hasta el quinto grado, mujeres (% de la cohorte)</option>
+                <option>Perseverancia en la escuela hasta el último grado del nivel primario, mujeres (% de la cohorte)</option>
+                <option>Tasa neta de ingreso en primer grado, mujeres (% de población en edad escolar oficial)</option>
+                <option>Inscripción escolar, nivel primario, mujeres (% neto)</option>
+                <option>Tasa bruta de ingreso en primer grado, mujeres (% del grupo etario correspondiente)</option>
+                <option>Inscripción escolar, nivel primario, mujeres (% bruto)</option>
+                <option>Educación de nivel primario, alumnos (% de mujeres)</option>
+                <option>Nivel de instrucción, al menos escuela primaria completa, población de más de 25 años, mujeres (%) (acumulativo)</option>
+                <option>Tasa de finalización de la educación de nivel primario, mujeres (% del grupo etario correspondiente)</option>
+                <option>Inscripción escolar, nivel preprimario, mujeres (% bruto)</option>
+                <option>Proporción de inscripciones de mujeres con respecto a varones en la educación terciaria (%)</option>
+                <option>Proporción de inscripciones de mujeres con respecto a varones en la educación secundaria (%)</option>
+                <option>Proporción de inscripciones de mujeres con respecto a varones en la educación primaria (%)</option>
+                <option>Desempleo, mujeres (% de la población activa femenina) (estimación modelado OIT)</option>
+                <option>Proporción de jóvenes sin educación, empleo ni capacitación, mujeres (% de la población de mujeres jóvenes)</option>
+                <option>Personas desempleadas con educación intermedia, mujeres</option>
+                <option>Personas desempleadas con educación básica, mujeres</option>
+                <option>Personas desempleadas con educación avanzada, mujeres</option>
+                <option>Desempleo, mujeres jóvenes (% de la población activa femenina entre 15 y 24 años de edad) (estimación modelado OIT)</option>
+                <option>Población activa, mujeres (% de la población activa total)</option>
+                <option>Tasa de alfabetización, mujeres adultas (% de mujeres de 15 años o más)</option>
+                <option>Proporción de mujeres con respecto a varones de jóvenes alfabetizados (% de jóvenes entre 15 y 24 años de edad)</option>
+                <option>Tasa de alfabetización, mujeres jóvenes (% de mujeres entre 15 y 24 años)</option>
+                <option>Empleados en la industria, mujeres (% del empleo femenino)</option>
+                <option>Trabajadores asalariados (empleados), mujeres (% del empleo femenino)</option>
+                <option>Empleo vulnerable, mujeres (% del empleo femenino)</option>
+                <option>Independientes, mujeres (% del empleo femenino)</option>
+            </select>
+            <select class="option-year" id="year-am">
                 <option value="2007" >2007</option>
                 <option value="2008" >2008</option>
                 <option value="2009" >2009</option>
@@ -41,16 +139,14 @@
                 <option value="2017" >2017</option>
                 <option value="none" selected>escolha o ano</option>
             </select>
-                <button onclick="ordemAm()">OK</button>
-                <article id="result-am"></article>
-
-
-            </article>
-            <article id="brasil" class="conteudo">
-                <h3>Índices do Brasil</h3>
-                <div class="componente"></div>
-                <select id="conteudobrasil"></select>
-                <select class="option-year" id="anoBra">
+            <button onclick="ordemAm()">OK</button>
+            <article id="result-am"></article>
+        </article>
+        <article id="brasil" class="conteudo">
+            <h3>Índices do Brasil</h3>
+            <div class="componente"></div>
+            <select id="conteudo-brasil"></select>
+            <select class="option-year" id="year-bra">
         <option value="2007" >2007</option>
         <option value="2008" >2008</option>
         <option value="2009" >2009</option>
@@ -64,18 +160,18 @@
         <option value="2017" >2017</option>
         <option value="none" selected>escolha o ano</option>
     </select>
-                <button onclick="filterBra()">OK</button>
-                <div id="resultBra"></div>
-                <button onclick="compararChiBra(); compararMexBra(); compararPerBra()">Comparar com os outros países</button>
-                <div id="compararChiBra"></div>
-                <div id="compararMexBra"></div>
-                <div id="compararPerBra"></div>
-            </article>
-            <article id="chile" class="conteudo">
-                <h3>Índices do Chile</h3>
-                <div class="componente"></div>
-                <select id="conteudochile"></select>
-                <select class="option-year" id="anoChi">
+            <button onclick="filterBra()">OK</button>
+            <p id="result-bra"></p>
+            <button onclick="compararChiBra(); compararMexBra(); compararPerBra()">Comparar com os outros países</button>
+            <p id="compararChiBra"></p>
+            <p id="compararMexBra"></p>
+            <p id="compararPerBra"></p>
+        </article>
+        <article id="chile" class="conteudo">
+            <h3>Índices do Chile</h3>
+            <div class="componente"></div>
+            <select id="conteudo-chile"></select>
+            <select class="option-year" id="year-chi">
         <option value="2007" >2007</option>
         <option value="2008" >2008</option>
         <option value="2009" >2009</option>
@@ -89,18 +185,18 @@
         <option value="2017" >2017</option>
         <option value="none" selected>escolha o ano</option>
     </select>
-                <button onclick="filterChi()">OK</button>
-                <div id="resultChi"></div>
-                <button onclick="compararBraChi(); compararMexChi(); compararPerChi()">Comparar com os outros países</button>
-                <div id="compararBraChi"></div>
-                <div id="compararMexChi"></div>
-                <div id="compararPerChi"></div>
-            </article>
-            <article id="mexico" class="conteudo">
-                <h3>Índices do México</h3>
-                <div class="componente"></div>
-                <select id="conteudomexico"></select>
-                <select class="option-year" id="anoMex">
+            <button onclick="filterChi()">OK</button>
+            <p id="result-chi"></p>
+            <button onclick="compararBraChi(); compararMexChi(); compararPerChi()">Comparar com os outros países</button>
+            <p id="compararBraChi"></p>
+            <p id="compararMexChi"></p>
+            <p id="compararPerChi"></p>
+        </article>
+        <article id="mexico" class="conteudo">
+            <h3>Índices do México</h3>
+            <div class="componente"></div>
+            <select id="conteudo-mexico"></select>
+            <select class="option-year" id="year-mex">
         <option value="2007" >2007</option>
         <option value="2008" >2008</option>
         <option value="2009" >2009</option>
@@ -114,18 +210,18 @@
         <option value="2017" >2017</option>
         <option value="none" selected>escolha o ano</option>
     </select>
-                <button onclick="filterMex()">OK</button>
-                <div id="resultMex"></div>
-                <button onclick="compararBraMex(); compararChiMex(); compararPerMex()">Comparar com os outros países</button>
-                <div id="compararBraMex"></div>
-                <div id="compararChiMex"></div>
-                <div id="compararPerMex"></div>
-            </article>
-            <article id="peru" class="conteudo">
-                <h3>Índices do Peru</h3>
-                <div class="componente"></div>
-                <select id="conteudoperu"></select>
-                <select class="option-year" id="anoPer">
+            <button onclick="filterMex()">OK</button>
+            <p id="result-mex"></p>
+            <button onclick="compararBraMex(); compararChiMex(); compararPerMex()">Comparar com os outros países</button>
+            <p id="compararBraMex"></p>
+            <p id="compararChiMex"></p>
+            <p id="compararPerMex"></p>
+        </article>
+        <article id="peru" class="conteudo">
+            <h3>Índices do Peru</h3>
+            <div class="componente"></div>
+            <select id="conteudo-peru"></select>
+            <select class="option-year" id="year-per">
         <option value="2007" >2007</option>
         <option value="2008" >2008</option>
         <option value="2009" >2009</option>
@@ -139,18 +235,19 @@
         <option value="2017" >2017</option>
         <option value="none" selected>escolha o ano</option>
     </select>
-                <button onclick="filterPer()">OK</button>
-                <div id="resultPer"></div>
-                <button onclick="compararBraPer(); compararChiPer(); compararMexPer()">Comparar com os outros países</button>
-                <div id="compararBraPer"></div>
-                <div id="compararChiPer"></div>
-                <div id="compararMexPer"></div>
-            </article>
-    </section>
+            <button onclick="filterPer()">OK</button>
+            <p id="result-per"></p>
+            <button onclick="compararBraPer(); compararChiPer(); compararMexPer()">Comparar com os outros países</button>
+            <p id="compararBraPer"></p>
+            <p id="compararChiPer"></p>
+            <p id="compararMexPer"></p>
+        </article>
     </main>
-
+    <footer></footer>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="./data/worldbank/worldbank.js"></script>
     <script src="main.js"></script>
+
 </body>
 
 </html>
