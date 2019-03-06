@@ -14,12 +14,14 @@ body {
     list-style: none;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     margin: auto;
     align-items: center;
 }
 
 .tab {
+    display: flex;
+    flex-direction: row;
     color: white;
     background-color: rgb(240, 83, 109);
     border-radius: 5px;

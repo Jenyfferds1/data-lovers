@@ -16,6 +16,7 @@
         </section>
         <section class="section-cont">
             <ul class="conteudo-tab">
+                <li><button type="button" value="HOME" data-tab-seleccionado="tab-home" id="tab-home" class="tab">Home</button></li>
                 <li><button type="button" value="AM" data-tab-seleccionado="tab-am" id="tab-am" class="tab">América Latina</button></li>
                 <li><button type="button" value="BRA" data-tab-seleccionado="tab-brasil" id="tab-bra" class="tab">Brasil</button></li>
                 <li><button type="button" value="CHI" data-tab-seleccionado="tab-chile" id="tab-chi" class="tab">Chile</button></li>
@@ -25,12 +26,14 @@
         </section>
     </header>
     <main>
+        <article id="home" class="conteudo">
+            <div id="container" style="min-width: 310px; max-width: 1000px; width: 1000px; height: 550px; margin: 0 auto"></div>
+        </article>
         <div class="filter" id="filter"></div>
         <article id="am" class="conteudo">
             <h3>América Latina</h3>
-            <div id="chart_div"></div>
             <article id="conteudo-am"></article>
-            <p>Países com índices Mínimo e Máximo dos indicadores voltados a educação</p>
+            <h3>Países com índices Mínimo e Máximo dos indicadores voltados a educação</h3>
             <select id="conteudoam-ordem">
                 <option>Fuerza laboral con educación intermedia (% del total)</option>
                 <option>Fuerza laboral con educación intermedia, varones (% de la fuerza laboral masculina)</option>
@@ -141,6 +144,17 @@
             </select>
             <button onclick="ordemAm()">OK</button>
             <article id="result-am"></article>
+            <h3>Resultados de 2007 a 2017</h3>
+            <select id="conteudo-brasil-am"></select>
+            <select id="ind-total-countrys">
+                <option value="Brasil">Brasil</option>
+                <option value="Chile">Chile</option>
+                <option value="México">México</option>
+                <option value="Peru">Peru</option>
+                <option value="none" selected>escolha o país</option>
+            </select>
+            <button onclick="showCountryAm()">OK</button>
+            <article id="result-am-two"></article>
         </article>
         <article id="brasil" class="conteudo">
             <h3>Índices do Brasil</h3>
@@ -244,7 +258,9 @@
         </article>
     </main>
     <footer></footer>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="./data/worldbank/worldbank.js"></script>
     <script src="main.js"></script>
 

@@ -3,81 +3,180 @@ window.onload = function() {
     showCountryChi();
     showCountryMex();
     showCountryPer();
-    // showCountryAm();
-    // indAmBra();
+    indAmBra();
 };
 
-// function showCountryAm() {
-//     let countryDiv = document.getElementById("conteudo-am");
-//     let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === "Población, mujeres")
-//     let poblacionDataBra = poblacionBra.data["2017"]
-//     let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === "Población, mujeres")
-//     let poblacionDataChi = poblacionChi.data["2017"]
-//     let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === "Población, mujeres")
-//     let poblacionDataMex = poblacionMex.data["2017"]
-//     let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === "Población, mujeres")
-//     let poblacionDataPer = poblacionPer.data["2017"]
-//     countryDiv.innerHTML = `
-//     <p>População de mulheres na América Latina em 2017</p>
-//     <p>População de mulheres no Brasil<p/>
-//     <p>${poblacionDataBra}</p>
-//     <p>População de mulheres no Chile<p/>
-//     <p>${poblacionDataChi}</p>
-//     <p>População de mulheres no México<p/>
-//     <p>${poblacionDataMex}</p>
-//     <p>População de mulheres no Peru<p/>
-//     <p>${poblacionDataPer}</p>
-//     `
-// }
-
-
-google.charts.load('current', { packages: ['corechart', 'bar'] });
-google.charts.setOnLoadCallback(drawMaterial);
-
-function drawMaterial() {
-    let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === "Población, mujeres")
-    let poblacionDataBra = poblacionBra.data["2017"]
-    let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === "Población, mujeres")
-    let poblacionDataChi = poblacionChi.data["2017"]
-    let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === "Población, mujeres")
-    let poblacionDataMex = poblacionMex.data["2017"]
-    let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === "Población, mujeres")
-    let poblacionDataPer = poblacionPer.data["2017"]
-    let data = google.visualization.arrayToDataTable([
-        ['Países', 'População de 2017', { role: 'style' }, { role: 'annotation' }],
-        ['Brasil', poblacionDataBra, 'pink', poblacionDataBra],
-        ['Chile', poblacionDataChi, 'pink', poblacionDataChi],
-        ['México', poblacionDataMex, 'pink', poblacionDataMex],
-        ['Peru', poblacionDataPer, 'pink', poblacionDataPer]
-    ]);
-
-    let materialOptions = {
-        chart: {
-            title: 'População de mulheres em 2017'
-        },
-        hAxis: {
-            title: 'Total População de Mulheres',
-            minValue: 0,
-        },
-        vAxis: {
-            title: 'População de mulheres em 2017'
-        },
-        bars: 'horizontal'
-    };
-    let materialChart = new google.charts.Bar(document.getElementById('chart_div'));
-    materialChart.draw(data, materialOptions);
+function indAmBra() {
+    let countryDivBra = document.getElementById("conteudo-brasil-am");
+    countryDivBra.innerHTML = `
+    ${getCountrysBra().map((indicador)=>`
+    <option>${indicador["indicatorName"]}</option>
+    `).join("")}
+    `
 }
 
+function showCountryAm() {
+    let countryDiv = document.getElementById("result-am-two");
+    let w = document.getElementById("ind-total-countrys").selectedIndex;
+    let z = document.getElementById("ind-total-countrys").options;
+    let country = z[w].textContent;
+    let x = document.getElementById("conteudo-brasil-am").selectedIndex;
+    let y = document.getElementById("conteudo-brasil-am").options;
+    let indicator = y[x].textContent;
+    let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === indicator)
+    let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === indicator)
+    let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === indicator)
+    let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === indicator)
+    if(country === "Brasil"){
+    countryDiv.innerHTML = `
+    <p>Valor do índice em 2007: ${poblacionBra.data[2007]}</p>
+    <p>Valor do índice em 2008: ${poblacionBra.data[2008]}</p>
+    <p>Valor do índice em 2009: ${poblacionBra.data[2009]}</p>
+    <p>Valor do índice em 2010: ${poblacionBra.data[2010]}</p>
+    <p>Valor do índice em 2011: ${poblacionBra.data[2011]}</p>
+    <p>Valor do índice em 2012: ${poblacionBra.data[2012]}</p>
+    <p>Valor do índice em 2013: ${poblacionBra.data[2013]}</p>
+    <p>Valor do índice em 2014: ${poblacionBra.data[2014]}</p>
+    <p>Valor do índice em 2015: ${poblacionBra.data[2015]}</p>
+    <p>Valor do índice em 2016: ${poblacionBra.data[2016]}</p>
+    <p>Valor do índice em 2017: ${poblacionBra.data[2017]}</p>
+    `
+    }if(country === "Chile"){
+    countryDiv.innerHTML = `
+    <p>Valor do índice em 2007: ${poblacionChi.data[2007]}</p>
+    <p>Valor do índice em 2008: ${poblacionChi.data[2008]}</p>
+    <p>Valor do índice em 2009: ${poblacionChi.data[2009]}</p>
+    <p>Valor do índice em 2010: ${poblacionChi.data[2010]}</p>
+    <p>Valor do índice em 2011: ${poblacionChi.data[2011]}</p>
+    <p>Valor do índice em 2012: ${poblacionChi.data[2012]}</p>
+    <p>Valor do índice em 2013: ${poblacionChi.data[2013]}</p>
+    <p>Valor do índice em 2014: ${poblacionChi.data[2014]}</p>
+    <p>Valor do índice em 2015: ${poblacionChi.data[2015]}</p>
+    <p>Valor do índice em 2016: ${poblacionChi.data[2016]}</p>
+    <p>Valor do índice em 2017: ${poblacionChi.data[2017]}</p>
+    `
+    }if(country === "México"){
+    countryDiv.innerHTML = `
+    <p>Valor do índice em 2007: ${poblacionMex.data[2007]}</p>
+    <p>Valor do índice em 2008: ${poblacionMex.data[2008]}</p>
+    <p>Valor do índice em 2009: ${poblacionMex.data[2009]}</p>
+    <p>Valor do índice em 2010: ${poblacionMex.data[2010]}</p>
+    <p>Valor do índice em 2011: ${poblacionMex.data[2011]}</p>
+    <p>Valor do índice em 2012: ${poblacionMex.data[2012]}</p>
+    <p>Valor do índice em 2013: ${poblacionMex.data[2013]}</p>
+    <p>Valor do índice em 2014: ${poblacionMex.data[2014]}</p>
+    <p>Valor do índice em 2015: ${poblacionMex.data[2015]}</p>
+    <p>Valor do índice em 2016: ${poblacionMex.data[2016]}</p>
+    <p>Valor do índice em 2017: ${poblacionMex.data[2017]}</p>
+    `
+    }if(country === "Peru"){
+    countryDiv.innerHTML = `
+    <p>Valor do índice em 2007: ${poblacionPer.data[2007]}</p>
+    <p>Valor do índice em 2008: ${poblacionPer.data[2008]}</p>
+    <p>Valor do índice em 2009: ${poblacionPer.data[2009]}</p>
+    <p>Valor do índice em 2010: ${poblacionPer.data[2010]}</p>
+    <p>Valor do índice em 2011: ${poblacionPer.data[2011]}</p>
+    <p>Valor do índice em 2012: ${poblacionPer.data[2012]}</p>
+    <p>Valor do índice em 2013: ${poblacionPer.data[2013]}</p>
+    <p>Valor do índice em 2014: ${poblacionPer.data[2014]}</p>
+    <p>Valor do índice em 2015: ${poblacionPer.data[2015]}</p>
+    <p>Valor do índice em 2016: ${poblacionPer.data[2016]}</p>
+    <p>Valor do índice em 2017: ${poblacionPer.data[2017]}</p>
+    `
+    }
+}
+ 
 
 
-// function indAmBra() {
-//     let countryDivBra = document.getElementById("conteudoam-ordem");
-//     countryDivBra.innerHTML = `
-//     ${getCountrysBra().map((indicador)=>`
-//     <option>${indicador["indicatorName"]}</option>
-//     `).join("")}
-//     `
-// }
+
+let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === "Población, mujeres")
+let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === "Población, mujeres")
+let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === "Población, mujeres")
+let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === "Población, mujeres")
+Highcharts.chart('container', {
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'População de mulheres na América Latina em 2007 e 2017'
+    },
+    xAxis: {
+        categories: ['Brasil', 'Chile', 'México', 'Peru'],
+        title: {
+            text: null
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'População',
+            align: 'high'
+        },
+        labels: {
+            overflow: 'justify'
+        }
+    },
+    tooltip: {
+        valueSuffix: ' millions'
+    },
+    plotOptions: {
+        bar: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'top',
+        x: -40,
+        y: 80,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+        shadow: true
+    },
+    credits: {
+        enabled: false
+    },
+    series: [{
+        name: 'Ano 2007',
+        data: [poblacionBra.data[2007], poblacionChi.data[2007], poblacionMex.data[2007], poblacionPer.data[2007]],
+        color: 'rgb(240, 83, 109)',
+    },{
+    //     name: 'Ano 2008',
+    //     data: [poblacionBra.data[2008], poblacionChi.data[2008], poblacionMex.data[2008], poblacionPer.data[2008]],
+    //   },{
+    //     name: 'Ano 2009',
+    //     data: [poblacionBra.data[2009], poblacionChi.data[2009], poblacionMex.data[2009], poblacionPer.data[2009]],
+    //   },{
+    //     name: 'Ano 2010',
+    //     data: [poblacionBra.data[2010], poblacionChi.data[2010], poblacionMex.data[2010], poblacionPer.data[2010]],
+    //   },{
+    //     name: 'Ano 2011',
+    //     data: [poblacionBra.data[2011], poblacionChi.data[2011], poblacionMex.data[2011], poblacionPer.data[2011]],
+    //   },{
+    //     name: 'Ano 2012',
+    //     data: [poblacionBra.data[2012], poblacionChi.data[2012], poblacionMex.data[2012], poblacionPer.data[2012]],
+    //   },{
+    //     name: 'Ano 2013',
+    //     data: [poblacionBra.data[2013], poblacionChi.data[2013], poblacionMex.data[2013], poblacionPer.data[2013]],
+    //   },{
+    //     name: 'Ano 2014',
+    //     data: [poblacionBra.data[2014], poblacionChi.data[2014], poblacionMex.data[2014], poblacionPer.data[2014]],
+    //   },{
+    //     name: 'Ano 2015',
+    //     data: [poblacionBra.data[2015], poblacionChi.data[2015], poblacionMex.data[2015], poblacionPer.data[2015]],
+    //   },{
+    //     name: 'Ano 2016',
+    //     data: [poblacionBra.data[2016], poblacionChi.data[2016], poblacionMex.data[2016], poblacionPer.data[2016]],
+    //   },{
+        name: 'Ano 2017',
+        data: [poblacionBra.data[2017], poblacionChi.data[2017], poblacionMex.data[2017], poblacionPer.data[2017]],
+    }]
+});
+
 
 function ordemAm() {
     let x = document.getElementById("year-am").selectedIndex;
@@ -168,8 +267,6 @@ function ordemAm() {
 `
         // }
 }
-
-
 
 function filterBra() {
     let x = document.getElementById("year-bra").selectedIndex;
@@ -693,14 +790,14 @@ function mostraOcultar(e) {
     let mexico = document.getElementById("mexico");
     let peru = document.getElementById("peru");
     let am = document.getElementById("am");
-
+    let home = document.getElementById("home");
     if (tabSeleccionado === "tab-am") {
-        am.style.display = 'block';
         chile.style.display = 'none';
         mexico.style.display = 'none';
         peru.style.display = 'none';
         brasil.style.display = 'none';
-
+        home.style.display = 'none';
+        am.style.display = 'block';
 
     }
     if (tabSeleccionado === "tab-brasil") {
@@ -708,6 +805,7 @@ function mostraOcultar(e) {
         chile.style.display = 'none';
         mexico.style.display = 'none';
         peru.style.display = 'none';
+        home.style.display = 'none';
         brasil.style.display = 'block';
 
     }
@@ -717,7 +815,7 @@ function mostraOcultar(e) {
         mexico.style.display = 'none';
         peru.style.display = 'none';
         chile.style.display = 'block';
-
+        home.style.display = 'none';
 
     }
     if (tabSeleccionado === "tab-mexico") {
@@ -725,6 +823,7 @@ function mostraOcultar(e) {
         chile.style.display = 'none';
         brasil.style.display = 'none';
         peru.style.display = 'none';
+        home.style.display = 'none';
         mexico.style.display = 'block';
 
     }
@@ -733,12 +832,22 @@ function mostraOcultar(e) {
         chile.style.display = 'none';
         mexico.style.display = 'none';
         brasil.style.display = 'none';
+        home.style.display = 'none';
         peru.style.display = 'block';
+    }
+    if (tabSeleccionado === "tab-home"){
+        am.style.display = 'none';
+        chile.style.display = 'none';
+        mexico.style.display = 'none';
+        brasil.style.display = 'none';
+        peru.style.display = 'none';
+        home.style.display = 'block';
     }
 };
 
 
 function carregarPag() {
+    let home = document.getElementById("home");
     let brasil = document.getElementById("brasil");
     let chile = document.getElementById("chile");
     let mexico = document.getElementById("mexico");
@@ -748,7 +857,8 @@ function carregarPag() {
     mexico.style.display = 'none';
     brasil.style.display = 'none';
     peru.style.display = 'none';
-    am.style.display = 'block';
+    am.style.display = 'none';
+    home.style.display = 'block';
     let elementosTab = document.getElementsByClassName("tab");
     for (let elementos of elementosTab) {
         elementos.addEventListener('click', mostraOcultar)
