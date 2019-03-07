@@ -249,12 +249,18 @@ function ordemAm() {
         },
     ];
 
-    let ordenado = yearsAm.sort((a, b) => {
-        if (a[ano] > b[ano]) {
-            return 1;
-        }
-        return -1;
-    });
+for(i of yearsAm){
+    if(i["2007"] !== ""){
+        console.log("fjdklsf")
+    }
+}
+
+let ordenado = yearsAm.sort((a, b) => {
+    if (a[ano] > b[ano]) {
+        return 1;
+    }
+    return -1;
+});
     //  if(ordenado[ano] === ""){
     //     resultTotalAm.innerHTML =`
     //    <p>Índice não definido</p> 
@@ -792,6 +798,7 @@ function mostraOcultar(e) {
     let peru = document.getElementById("peru");
     let am = document.getElementById("am");
     let home = document.getElementById("home");
+    let grafic= document.getElementById("grafic");
     if (tabSeleccionado === "tab-am") {
         chile.style.display = 'none';
         mexico.style.display = 'none';
@@ -799,6 +806,7 @@ function mostraOcultar(e) {
         brasil.style.display = 'none';
         home.style.display = 'none';
         am.style.display = 'block';
+        grafic.style.display = 'none';
 
     }
     if (tabSeleccionado === "tab-brasil") {
@@ -808,6 +816,7 @@ function mostraOcultar(e) {
         peru.style.display = 'none';
         home.style.display = 'none';
         brasil.style.display = 'block';
+        grafic.style.display = 'none';
 
     }
     if (tabSeleccionado === "tab-chile") {
@@ -817,6 +826,7 @@ function mostraOcultar(e) {
         peru.style.display = 'none';
         chile.style.display = 'block';
         home.style.display = 'none';
+        grafic.style.display = 'none';
 
     }
     if (tabSeleccionado === "tab-mexico") {
@@ -826,6 +836,7 @@ function mostraOcultar(e) {
         peru.style.display = 'none';
         home.style.display = 'none';
         mexico.style.display = 'block';
+        grafic.style.display = 'none';
 
     }
     if (tabSeleccionado === "tab-peru") {
@@ -835,6 +846,7 @@ function mostraOcultar(e) {
         brasil.style.display = 'none';
         home.style.display = 'none';
         peru.style.display = 'block';
+        grafic.style.display = 'none';
     }
     if (tabSeleccionado === "tab-home"){
         am.style.display = 'none';
@@ -843,6 +855,16 @@ function mostraOcultar(e) {
         brasil.style.display = 'none';
         peru.style.display = 'none';
         home.style.display = 'block';
+        grafic.style.display = 'none';
+    }
+    if (tabSeleccionado === "tab-grafic"){
+        am.style.display = 'none';
+        chile.style.display = 'none';
+        mexico.style.display = 'none';
+        brasil.style.display = 'none';
+        peru.style.display = 'none';
+        home.style.display = 'none';
+        grafic.style.display = 'block';
     }
 };
 
@@ -854,12 +876,14 @@ function carregarPag() {
     let mexico = document.getElementById("mexico");
     let peru = document.getElementById("peru");
     let am = document.getElementById("am");
+    let grafic= document.getElementById("grafic")
     chile.style.display = 'none';
     mexico.style.display = 'none';
     brasil.style.display = 'none';
     peru.style.display = 'none';
     am.style.display = 'none';
     home.style.display = 'block';
+    grafic.style.display = 'none'
     let elementosTab = document.getElementsByClassName("tab");
     for (let elementos of elementosTab) {
         elementos.addEventListener('click', mostraOcultar)

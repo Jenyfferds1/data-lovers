@@ -95,3 +95,17 @@ h3{
     border-color:transparent;
 
 }
+.education{
+    font-family: 'Montserrat', sans-serif;
+    padding: 8% 50% 8% 1%;
+    font-size: 50px;
+    color: rgb(79,2,176);
+
+}
+
+.educam{
+    font-family: 'Lato', sans-serif;
+    padding: 1% 50% 8% 8%;
+
+    
+}
