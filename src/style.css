@@ -1,5 +1,17 @@
 body {
     margin: 0%;
+    background-image: url("imagens/Home.jpg");
+    
+
+}
+
+.main{
+display: flex;
+justify-content: column;
+text-align: center;
+margin: auto;
+padding: 1%;
+
 }
 
 .title {
@@ -8,24 +20,78 @@ body {
     justify-content: flex-start;
     margin: auto;
     align-items: center;
+    
 }
 
 .conteudo-tab {
     list-style: none;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    margin: auto;
+    /* justify-content: space-evenly; */
+    /* margin: auto; */
     align-items: center;
+    text-align: center;
 }
 
+.section-cont{
+    /* margin-left: 30%;   */
+}
+
+.title{
+    padding-right: 80%;
+    margin: 5%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
 .tab {
-    display: flex;
+    font-family: 'Montserrat', sans-serif;
     flex-direction: row;
-    color: white;
-    background-color: rgb(240, 83, 109);
-    border-radius: 5px;
-    border-bottom: none;
+    color: #18bc9c;
+    /* color: rgb(240, 83, 109); */
+    background-color: transparent;
+   /* border-radius: 5px; */
+    border-bottom: transparent; 
     padding: 10px;
-    width: 100px;
+    width: 150px;
+    border-width: 0px;
+    border-style: outset;
+    border-color: none;
+    border-image: none;
+    font-size: 100%; 
+    text-align: center;
+
+}
+
+h3{
+    font-family: 'Lato', sans-serif;
+}
+.conteudo{
+    display:flex;
+   flex-direction: column;
+   margin: 0%;
+   margin-left: 0%;
+   padding: 8% 50% 8% 8%;
+}
+.conteudo-grafic{
+  background-color: white; 
+}
+#conteudo-brasil, #conteudo-chile, #conteudo-mexico, #conteudo-peru, #conteudoam-ordem, #conteudo-brasil-am{
+  width: 50%;
+  height:10%;  
+}
+
+#result-am, #result-am-two, #result-bra, #compararChiBra, #compararMexBra, #compararPerBra, #result-chi, #compararBraChi, #compararMexChi, #compararPerChi, #result-mex, #compararBraMex, #compararChiMex, #compararPerMex, #result-per, #compararBraPer, #compararChiPer, #compararMexPer{
+    font-family: 'Lato', sans-serif;
+    font-size: 100%; 
+    
+}
+
+.btn{
+    background-color: rgb(79,2,176);
+    color: white;
+    border-radius: 5px;
+    padding: 2%;
+    border-color:transparent;
+
 }

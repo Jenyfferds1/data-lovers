@@ -143,7 +143,7 @@ Highcharts.chart('container', {
     series: [{
         name: 'Ano 2007',
         data: [poblacionBra.data[2007], poblacionChi.data[2007], poblacionMex.data[2007], poblacionPer.data[2007]],
-        color: 'rgb(240, 83, 109)',
+        color: 'rgb(213, 73, 144)',
     },{
     //     name: 'Ano 2008',
     //     data: [poblacionBra.data[2008], poblacionChi.data[2008], poblacionMex.data[2008], poblacionPer.data[2008]],
@@ -173,6 +173,7 @@ Highcharts.chart('container', {
     //     data: [poblacionBra.data[2016], poblacionChi.data[2016], poblacionMex.data[2016], poblacionPer.data[2016]],
     //   },{
         name: 'Ano 2017',
+        color: '#18bc9c',
         data: [poblacionBra.data[2017], poblacionChi.data[2017], poblacionMex.data[2017], poblacionPer.data[2017]],
     }]
 });

@@ -5,17 +5,18 @@
     <meta charset="utf-8">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 
 </head>
 
 <body>
     <header>
         <div id="root"></div>
-        <section id="section-initial">
-            <h1 class="title">EDUCAM</h1>
-        </section>
         <section class="section-cont">
+        
             <ul class="conteudo-tab">
+                <li><h1 class="title">EDUCAM</h1></li>
                 <li><button type="button" value="HOME" data-tab-seleccionado="tab-home" id="tab-home" class="tab">Home</button></li>
                 <li><button type="button" value="AM" data-tab-seleccionado="tab-am" id="tab-am" class="tab">América Latina</button></li>
                 <li><button type="button" value="BRA" data-tab-seleccionado="tab-brasil" id="tab-bra" class="tab">Brasil</button></li>
@@ -26,15 +27,13 @@
         </section>
     </header>
     <main>
-        <article id="home" class="conteudo">
+        <article id="home" class="conteudo-grafic">
             <div id="container" style="min-width: 310px; max-width: 1000px; width: 1000px; height: 550px; margin: 0 auto"></div>
         </article>
-        <div class="filter" id="filter"></div>
         <article id="am" class="conteudo">
             <h3>América Latina</h3>
-            <article id="conteudo-am"></article>
-            <h3>Países com índices Mínimo e Máximo dos indicadores voltados a educação</h3>
-            <select id="conteudoam-ordem">
+            <h3 >Países com índices Mínimo e Máximo dos indicadores voltados a educação</h3>
+            <select  class="am-ind" id="conteudoam-ordem">
                 <option>Fuerza laboral con educación intermedia (% del total)</option>
                 <option>Fuerza laboral con educación intermedia, varones (% de la fuerza laboral masculina)</option>
                 <option>Fuerza laboral con educación intermedia, mujeres (% de la fuerza laboral femenina)</option>
@@ -142,19 +141,19 @@
                 <option value="2017" >2017</option>
                 <option value="none" selected>escolha o ano</option>
             </select>
-            <button onclick="ordemAm()">OK</button>
-            <article id="result-am"></article>
-            <h3>Resultados de 2007 a 2017</h3>
-            <select id="conteudo-brasil-am"></select>
-            <select id="ind-total-countrys">
+            <button  class="btn" onclick="ordemAm()">OK</button>
+            <article  class="am" id="result-am"></article>
+            <h3  class="am">Resultados de 2007 a 2017</h3>
+            <select  class="am-ind" id="conteudo-brasil-am"></select>
+            <select   class="am" id="ind-total-countrys">
                 <option value="Brasil">Brasil</option>
                 <option value="Chile">Chile</option>
                 <option value="México">México</option>
                 <option value="Peru">Peru</option>
                 <option value="none" selected>escolha o país</option>
             </select>
-            <button onclick="showCountryAm()">OK</button>
-            <article id="result-am-two"></article>
+            <button class="btn" onclick="showCountryAm()">OK</button>
+            <article  id="result-am-two"></article>
         </article>
         <article id="brasil" class="conteudo">
             <h3>Índices do Brasil</h3>
@@ -174,9 +173,9 @@
         <option value="2017" >2017</option>
         <option value="none" selected>escolha o ano</option>
     </select>
-            <button onclick="filterBra()">OK</button>
+            <button class="btn" onclick="filterBra()">OK</button>
             <p id="result-bra"></p>
-            <button onclick="compararChiBra(); compararMexBra(); compararPerBra()">Comparar com os outros países</button>
+            <button class="btn" onclick="compararChiBra(); compararMexBra(); compararPerBra()">Comparar com os outros países</button>
             <p id="compararChiBra"></p>
             <p id="compararMexBra"></p>
             <p id="compararPerBra"></p>
@@ -199,9 +198,9 @@
         <option value="2017" >2017</option>
         <option value="none" selected>escolha o ano</option>
     </select>
-            <button onclick="filterChi()">OK</button>
+            <button class="btn" onclick="filterChi()">OK</button>
             <p id="result-chi"></p>
-            <button onclick="compararBraChi(); compararMexChi(); compararPerChi()">Comparar com os outros países</button>
+            <button class="btn" onclick="compararBraChi(); compararMexChi(); compararPerChi()">Comparar com os outros países</button>
             <p id="compararBraChi"></p>
             <p id="compararMexChi"></p>
             <p id="compararPerChi"></p>
@@ -224,9 +223,9 @@
         <option value="2017" >2017</option>
         <option value="none" selected>escolha o ano</option>
     </select>
-            <button onclick="filterMex()">OK</button>
+            <button class="btn" onclick="filterMex()">OK</button>
             <p id="result-mex"></p>
-            <button onclick="compararBraMex(); compararChiMex(); compararPerMex()">Comparar com os outros países</button>
+            <button class="btn" onclick="compararBraMex(); compararChiMex(); compararPerMex()">Comparar com os outros países</button>
             <p id="compararBraMex"></p>
             <p id="compararChiMex"></p>
             <p id="compararPerMex"></p>
@@ -249,9 +248,9 @@
         <option value="2017" >2017</option>
         <option value="none" selected>escolha o ano</option>
     </select>
-            <button onclick="filterPer()">OK</button>
+            <button class="btn" onclick="filterPer()">OK</button>
             <p id="result-per"></p>
-            <button onclick="compararBraPer(); compararChiPer(); compararMexPer()">Comparar com os outros países</button>
+            <button class="btn" onclick="compararBraPer(); compararChiPer(); compararMexPer()">Comparar com os outros países</button>
             <p id="compararBraPer"></p>
             <p id="compararChiPer"></p>
             <p id="compararMexPer"></p>
