@@ -248,6 +248,13 @@ function ordemAm() {
             "2017": poblacionPer.data[2017],
         },
     ];
+console.log(yearsAm)
+for(i of yearsAm) {
+    if(i["2007"] !== ""){
+        console.log("vazio")
+    }
+    }
+
 
     let ordenado = yearsAm.sort((a, b) => {
         if (a[ano] > b[ano]) {
