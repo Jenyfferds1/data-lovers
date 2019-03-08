@@ -27,68 +27,242 @@ function showCountryAm() {
     let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === indicator)
     let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === indicator)
     let poblacionPer = getCountrysPer().find(indic => indic.indicatorName === indicator)
+    
+    let braOne = poblacionBra.data[2007]
+    if(braOne === ""){
+        braOne = "Índice não indicado"
+    }
+    let braTwo = poblacionBra.data[2008]
+    if(braTwo === ""){
+        braTwo = "Índice não indicado"
+    }
+    let braThree = poblacionBra.data[2009]
+    if(braThree === ""){
+        braThree = "Índice não indicado"
+    }
+    let braFour = poblacionBra.data[2010]
+    if(braFour === ""){
+        braFour = "Índice não indicado"
+    }
+    let braFive = poblacionBra.data[2011]
+    if(braFive === ""){
+        braFive = "Índice não indicado"
+    }
+    let braSix = poblacionBra.data[2012]
+    if(braSix === ""){
+        braSix = "Índice não indicado"
+    }
+    let braSeven = poblacionBra.data[2013]
+    if(braSeven === ""){
+        braSeven = "Índice não indicado"
+    }
+    let braEight = poblacionBra.data[2014]
+    if(braEight === ""){
+        braEight = "Índice não indicado"
+    }
+    let braNine = poblacionBra.data[2015]
+    if(braNine === ""){
+        braNine = "Índice não indicado"
+    }
+    let braTen = poblacionBra.data[2016]
+    if(braTen === ""){
+        braTen = "Índice não indicado"
+    }
+    let braEleven = poblacionBra.data[2017]
+    if(braEleven === ""){
+        braEleven = "Índice não indicado"
+    }
+    let chiOne = poblacionChi.data[2007]
+    if(chiOne === ""){
+        chiOne = "Índice não indicado"
+    }
+    let chiTwo = poblacionChi.data[2008]
+    if(chiTwo === ""){
+        chiTwo = "Índice não indicado"
+    }
+    let chiThree = poblacionChi.data[2009]
+    if(chiThree === ""){
+        chiThree = "Índice não indicado"
+    }
+    let chiFour = poblacionChi.data[2010]
+    if(chiFour === ""){
+        chiFour = "Índice não indicado"
+    }
+    let chiFive = poblacionChi.data[2011]
+    if(chiFive === ""){
+        chiFive = "Índice não indicado"
+    }
+    let chiSix = poblacionChi.data[2012]
+    if(chiSix === ""){
+        chiSix = "Índice não indicado"
+    }
+    let chiSeven = poblacionChi.data[2013]
+    if(chiSeven === ""){
+        chiSeven = "Índice não indicado"
+    }
+    let chiEight = poblacionChi.data[2014]
+    if(chiEight === ""){
+        chiEight = "Índice não indicado"
+    }
+    let chiNine = poblacionChi.data[2015]
+    if(chiNine === ""){
+        chiNine = "Índice não indicado"
+    }
+    let chiTen = poblacionChi.data[2016]
+    if(chiTen === ""){
+        chiTen = "Índice não indicado"
+    }
+    let chiEleven = poblacionChi.data[2017]
+    if(chiEleven === ""){
+        chiEleven = "Índice não indicado"
+    }
+    let mexOne = poblacionMex.data[2007]
+    if(mexOne === ""){
+        mexOne = "Índice não indicado"
+    }
+    let mexTwo = poblacionMex.data[2008]
+    if(mexTwo === ""){
+        mexTwo = "Índice não indicado"
+    }
+    let mexThree = poblacionMex.data[2009]
+    if(mexThree === ""){
+        mexThree = "Índice não indicado"
+    }
+    let mexFour = poblacionMex.data[2010]
+    if(mexFour === ""){
+        mexFour = "Índice não indicado"
+    }
+    let mexFive = poblacionMex.data[2011]
+    if(mexFive === ""){
+        mexFive = "Índice não indicado"
+    }
+    let mexSix = poblacionMex.data[2012]
+    if(mexSix === ""){
+        mexSix = "Índice não indicado"
+    }
+    let mexSeven = poblacionMex.data[2013]
+    if(mexSeven === ""){
+        mexSeven = "Índice não indicado"
+    }
+    let mexEight = poblacionMex.data[2014]
+    if(mexEight === ""){
+        mexEight = "Índice não indicado"
+    }
+    let mexNine = poblacionMex.data[2015]
+    if(mexNine === ""){
+        mexNine = "Índice não indicado"
+    }
+    let mexTen = poblacionMex.data[2016]
+    if(mexTen === ""){
+        mexTen = "Índice não indicado"
+    }
+    let mexEleven = poblacionMex.data[2017]
+    if(mexEleven === ""){
+        mexEleven = "Índice não indicado"
+    }
+    let perOne = poblacionPer.data[2007]
+    if(perOne === ""){
+        perOne = "Índice não indicado"
+    }
+    let perTwo = poblacionPer.data[2008]
+    if(perTwo === ""){
+        perTwo = "Índice não indicado"
+    }
+    let perThree = poblacionPer.data[2009]
+    if(perThree === ""){
+        perThree = "Índice não indicado"
+    }
+    let perFour = poblacionPer.data[2010]
+    if(perFour === ""){
+        perFour = "Índice não indicado"
+    }
+    let perFive = poblacionPer.data[2011]
+    if(perFive === ""){
+        perFive = "Índice não indicado"
+    }
+    let perSix = poblacionPer.data[2012]
+    if(perSix === ""){
+        perSix = "Índice não indicado"
+    }
+    let perSeven = poblacionPer.data[2013]
+    if(perSeven === ""){
+        perSeven = "Índice não indicado"
+    }
+    let perEight = poblacionPer.data[2014]
+    if(perEight === ""){
+        perEight = "Índice não indicado"
+    }
+    let perNine = poblacionPer.data[2015]
+    if(perNine === ""){
+        perNine = "Índice não indicado"
+    }
+    let perTen = poblacionPer.data[2016]
+    if(perTen === ""){
+        perTen = "Índice não indicado"
+    }
+    let perEleven = poblacionPer.data[2017]
+    if(perEleven === ""){
+        perEleven = "Índice não indicado"
+    }
     if(country === "Brasil"){
     countryDiv.innerHTML = `
-    <p>Valor do índice em 2007: ${poblacionBra.data[2007]}</p>
-    <p>Valor do índice em 2008: ${poblacionBra.data[2008]}</p>
-    <p>Valor do índice em 2009: ${poblacionBra.data[2009]}</p>
-    <p>Valor do índice em 2010: ${poblacionBra.data[2010]}</p>
-    <p>Valor do índice em 2011: ${poblacionBra.data[2011]}</p>
-    <p>Valor do índice em 2012: ${poblacionBra.data[2012]}</p>
-    <p>Valor do índice em 2013: ${poblacionBra.data[2013]}</p>
-    <p>Valor do índice em 2014: ${poblacionBra.data[2014]}</p>
-    <p>Valor do índice em 2015: ${poblacionBra.data[2015]}</p>
-    <p>Valor do índice em 2016: ${poblacionBra.data[2016]}</p>
-    <p>Valor do índice em 2017: ${poblacionBra.data[2017]}</p>
+    <p>Valor do índice em 2007: ${braOne}</p>
+    <p>Valor do índice em 2008: ${braTwo}</p>
+    <p>Valor do índice em 2009: ${braThree}</p>
+    <p>Valor do índice em 2010: ${braFour}</p>
+    <p>Valor do índice em 2011: ${braFive}</p>
+    <p>Valor do índice em 2012: ${braSix}</p>
+    <p>Valor do índice em 2013: ${braSeven}</p>
+    <p>Valor do índice em 2014: ${braEight}</p>
+    <p>Valor do índice em 2015: ${braNine}</p>
+    <p>Valor do índice em 2016: ${braTen}</p>
+    <p>Valor do índice em 2017: ${braEleven}</p>
     `
     }if(country === "Chile"){
     countryDiv.innerHTML = `
-    <p>Valor do índice em 2007: ${poblacionChi.data[2007]}</p>
-    <p>Valor do índice em 2008: ${poblacionChi.data[2008]}</p>
-    <p>Valor do índice em 2009: ${poblacionChi.data[2009]}</p>
-    <p>Valor do índice em 2010: ${poblacionChi.data[2010]}</p>
-    <p>Valor do índice em 2011: ${poblacionChi.data[2011]}</p>
-    <p>Valor do índice em 2012: ${poblacionChi.data[2012]}</p>
-    <p>Valor do índice em 2013: ${poblacionChi.data[2013]}</p>
-    <p>Valor do índice em 2014: ${poblacionChi.data[2014]}</p>
-    <p>Valor do índice em 2015: ${poblacionChi.data[2015]}</p>
-    <p>Valor do índice em 2016: ${poblacionChi.data[2016]}</p>
-    <p>Valor do índice em 2017: ${poblacionChi.data[2017]}</p>
+    <p>Valor do índice em 2007: ${chiOne}</p>
+    <p>Valor do índice em 2008: ${chiTwo}</p>
+    <p>Valor do índice em 2009: ${chiThree}</p>
+    <p>Valor do índice em 2010: ${chiFour}</p>
+    <p>Valor do índice em 2011: ${chiFive}</p>
+    <p>Valor do índice em 2012: ${chiSix}</p>
+    <p>Valor do índice em 2013: ${chiSeven}</p>
+    <p>Valor do índice em 2014: ${chiEight}</p>
+    <p>Valor do índice em 2015: ${chiNine}</p>
+    <p>Valor do índice em 2016: ${chiTen}</p>
+    <p>Valor do índice em 2017: ${chiEleven}</p>
     `
     }if(country === "México"){
     countryDiv.innerHTML = `
-    <p>Valor do índice em 2007: ${poblacionMex.data[2007]}</p>
-    <p>Valor do índice em 2008: ${poblacionMex.data[2008]}</p>
-    <p>Valor do índice em 2009: ${poblacionMex.data[2009]}</p>
-    <p>Valor do índice em 2010: ${poblacionMex.data[2010]}</p>
-    <p>Valor do índice em 2011: ${poblacionMex.data[2011]}</p>
-    <p>Valor do índice em 2012: ${poblacionMex.data[2012]}</p>
-    <p>Valor do índice em 2013: ${poblacionMex.data[2013]}</p>
-    <p>Valor do índice em 2014: ${poblacionMex.data[2014]}</p>
-    <p>Valor do índice em 2015: ${poblacionMex.data[2015]}</p>
-    <p>Valor do índice em 2016: ${poblacionMex.data[2016]}</p>
-    <p>Valor do índice em 2017: ${poblacionMex.data[2017]}</p>
+    <p>Valor do índice em 2007: ${mexOne}</p>
+    <p>Valor do índice em 2008: ${mexTwo}</p>
+    <p>Valor do índice em 2009: ${mexThree}</p>
+    <p>Valor do índice em 2010: ${mexFour}</p>
+    <p>Valor do índice em 2011: ${mexFive}</p>
+    <p>Valor do índice em 2012: ${mexSix}</p>
+    <p>Valor do índice em 2013: ${mexSeven}</p>
+    <p>Valor do índice em 2014: ${mexEight}</p>
+    <p>Valor do índice em 2015: ${mexNine}</p>
+    <p>Valor do índice em 2016: ${mexTen}</p>
+    <p>Valor do índice em 2017: ${mexEleven}</p>
     `
     }if(country === "Peru"){
     countryDiv.innerHTML = `
-    <p>Valor do índice em 2007: ${poblacionPer.data[2007]}</p>
-    <p>Valor do índice em 2008: ${poblacionPer.data[2008]}</p>
-    <p>Valor do índice em 2009: ${poblacionPer.data[2009]}</p>
-    <p>Valor do índice em 2010: ${poblacionPer.data[2010]}</p>
-    <p>Valor do índice em 2011: ${poblacionPer.data[2011]}</p>
-    <p>Valor do índice em 2012: ${poblacionPer.data[2012]}</p>
-    <p>Valor do índice em 2013: ${poblacionPer.data[2013]}</p>
-    <p>Valor do índice em 2014: ${poblacionPer.data[2014]}</p>
-    <p>Valor do índice em 2015: ${poblacionPer.data[2015]}</p>
-    <p>Valor do índice em 2016: ${poblacionPer.data[2016]}</p>
-    <p>Valor do índice em 2017: ${poblacionPer.data[2017]}</p>
+    <p>Valor do índice em 2007: ${perOne}</p>
+    <p>Valor do índice em 2008: ${perTwo}</p>
+    <p>Valor do índice em 2009: ${perThree}</p>
+    <p>Valor do índice em 2010: ${perFour}</p>
+    <p>Valor do índice em 2011: ${perFive}</p>
+    <p>Valor do índice em 2012: ${perSix}</p>
+    <p>Valor do índice em 2013: ${perSeven}</p>
+    <p>Valor do índice em 2014: ${perEight}</p>
+    <p>Valor do índice em 2015: ${perNine}</p>
+    <p>Valor do índice em 2016: ${perTen}</p>
+    <p>Valor do índice em 2017: ${perEleven}</p>
     `
     }
 }
  
-
-
-
 let poblacionBra = getCountrysBra().find(indic => indic.indicatorName === "Población, mujeres")
 let poblacionChi = getCountrysChi().find(indic => indic.indicatorName === "Población, mujeres")
 let poblacionMex = getCountrysMex().find(indic => indic.indicatorName === "Población, mujeres")
@@ -117,7 +291,7 @@ Highcharts.chart('container', {
         }
     },
     tooltip: {
-        valueSuffix: ' millions'
+        valueSuffix: ' milhões'
     },
     plotOptions: {
         bar: {
@@ -145,33 +319,33 @@ Highcharts.chart('container', {
         data: [poblacionBra.data[2007], poblacionChi.data[2007], poblacionMex.data[2007], poblacionPer.data[2007]],
         color: 'rgb(213, 73, 144)',
     },{
-    //     name: 'Ano 2008',
-    //     data: [poblacionBra.data[2008], poblacionChi.data[2008], poblacionMex.data[2008], poblacionPer.data[2008]],
-    //   },{
-    //     name: 'Ano 2009',
-    //     data: [poblacionBra.data[2009], poblacionChi.data[2009], poblacionMex.data[2009], poblacionPer.data[2009]],
-    //   },{
-    //     name: 'Ano 2010',
-    //     data: [poblacionBra.data[2010], poblacionChi.data[2010], poblacionMex.data[2010], poblacionPer.data[2010]],
-    //   },{
-    //     name: 'Ano 2011',
-    //     data: [poblacionBra.data[2011], poblacionChi.data[2011], poblacionMex.data[2011], poblacionPer.data[2011]],
-    //   },{
-    //     name: 'Ano 2012',
-    //     data: [poblacionBra.data[2012], poblacionChi.data[2012], poblacionMex.data[2012], poblacionPer.data[2012]],
-    //   },{
-    //     name: 'Ano 2013',
-    //     data: [poblacionBra.data[2013], poblacionChi.data[2013], poblacionMex.data[2013], poblacionPer.data[2013]],
-    //   },{
-    //     name: 'Ano 2014',
-    //     data: [poblacionBra.data[2014], poblacionChi.data[2014], poblacionMex.data[2014], poblacionPer.data[2014]],
-    //   },{
-    //     name: 'Ano 2015',
-    //     data: [poblacionBra.data[2015], poblacionChi.data[2015], poblacionMex.data[2015], poblacionPer.data[2015]],
-    //   },{
-    //     name: 'Ano 2016',
-    //     data: [poblacionBra.data[2016], poblacionChi.data[2016], poblacionMex.data[2016], poblacionPer.data[2016]],
-    //   },{
+        name: 'Ano 2008',
+        data: [poblacionBra.data[2008], poblacionChi.data[2008], poblacionMex.data[2008], poblacionPer.data[2008]],
+      },{
+        name: 'Ano 2009',
+        data: [poblacionBra.data[2009], poblacionChi.data[2009], poblacionMex.data[2009], poblacionPer.data[2009]],
+      },{
+        name: 'Ano 2010',
+        data: [poblacionBra.data[2010], poblacionChi.data[2010], poblacionMex.data[2010], poblacionPer.data[2010]],
+      },{
+        name: 'Ano 2011',
+        data: [poblacionBra.data[2011], poblacionChi.data[2011], poblacionMex.data[2011], poblacionPer.data[2011]],
+      },{
+        name: 'Ano 2012',
+        data: [poblacionBra.data[2012], poblacionChi.data[2012], poblacionMex.data[2012], poblacionPer.data[2012]],
+      },{
+        name: 'Ano 2013',
+        data: [poblacionBra.data[2013], poblacionChi.data[2013], poblacionMex.data[2013], poblacionPer.data[2013]],
+      },{
+        name: 'Ano 2014',
+        data: [poblacionBra.data[2014], poblacionChi.data[2014], poblacionMex.data[2014], poblacionPer.data[2014]],
+      },{
+        name: 'Ano 2015',
+        data: [poblacionBra.data[2015], poblacionChi.data[2015], poblacionMex.data[2015], poblacionPer.data[2015]],
+      },{
+        name: 'Ano 2016',
+        data: [poblacionBra.data[2016], poblacionChi.data[2016], poblacionMex.data[2016], poblacionPer.data[2016]],
+      },{
         name: 'Ano 2017',
         color: '#18bc9c',
         data: [poblacionBra.data[2017], poblacionChi.data[2017], poblacionMex.data[2017], poblacionPer.data[2017]],
@@ -248,32 +422,33 @@ function ordemAm() {
             "2017": poblacionPer.data[2017],
         },
     ];
-
-for(i of yearsAm){
-    if(i["2007"] !== ""){
-        console.log("fjdklsf")
+function filterMinMax(){
+let years=[]
+for(let i of yearsAm) {
+    if(i[ano] !== ""){
+       years.push(i)
     }
 }
+return years
+}
 
-let ordenado = yearsAm.sort((a, b) => {
-    if (a[ano] > b[ano]) {
-        return 1;
-    }
-    return -1;
-});
-    //  if(ordenado[ano] === ""){
-    //     resultTotalAm.innerHTML =`
-    //    <p>Índice não definido</p> 
-    //    `
-    //  }else{
+let ordenado = filterMinMax().sort((a, b) => {
+        if (a[ano] > b[ano]) {
+            return 1;
+        }
+        return -1;
+    })
+
+let max = ordenado[ordenado.length-1]
+
     resultTotalAm.innerHTML = `
-<p>País com índice máximo: ${ordenado[3].country}</p>
-<p>Índice: ${ordenado[3][ano]}</p>
-<p>País com índice mínimo: ${ordenado[0].country}</p>
-<p>Índice: ${ordenado[0][ano]}</p>
-`
-        // }
-}
+    <p>País com índice máximo: ${max.country}</p>
+    <p>Índice: ${max[ano]}</p>
+    <p>País com índice mínimo: ${ordenado[0].country}</p>
+    <p>Índice: ${ordenado[0][ano]}</p>
+    `
+}  
+
 
 function filterBra() {
     let x = document.getElementById("year-bra").selectedIndex;
@@ -323,7 +498,7 @@ function compararChiBra() {
                 if (ano === dataTotalChi && indicator === indicatorChiTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Chile: " + poblacionChi.data[ano]
                     if (poblacionChi.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Chile: Índice não indicado"
                     }
                 }
             }
@@ -352,7 +527,7 @@ function compararMexBra() {
                 if (ano === dataTotalMex && indicator === indicatorMexTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no México: " + poblacionMex.data[ano]
                     if (poblacionMex.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no México: Índice não indicado"
                     }
                 }
             }
@@ -381,7 +556,7 @@ function compararPerBra() {
                 if (ano === dataTotalPer && indicator === indicatorPerTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Peru: " + poblacionPer.data[ano]
                     if (poblacionPer.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Peru: Índice não indicado"
                     }
                 }
             }
@@ -455,7 +630,7 @@ function compararBraChi(){
                 if (ano === dataTotalBra && indicator === indicatorBraTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Brasil: " + poblacionBra.data[ano]
                     if (poblacionBra.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Brasil: Índice não indicado"
                     }
                 }
             }
@@ -483,7 +658,7 @@ function compararMexChi(){
                 if (ano === dataTotalMex && indicator === indicatorMexTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no México: " + poblacionMex.data[ano]
                     if (poblacionMex.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no México: Índice não indicado"
                     }
                 }
             }
@@ -512,7 +687,7 @@ function compararPerChi(){
                 if (ano === dataTotalPer && indicator === indicatorPerTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Peru: " + poblacionPer.data[ano]
                     if (poblacionPer.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Peru: Índice não indicado"
                     }
                 }
             }
@@ -585,7 +760,7 @@ function compararBraMex(){
                 if (ano === dataTotalBra && indicator === indicatorBraTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Brasil: " + poblacionBra.data[ano]
                     if (poblacionBra.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Brasil: Índice não indicado"
                     }
                 }
             }
@@ -612,7 +787,7 @@ function compararChiMex(){
                 if (ano === dataTotalChi && indicator === indicatorChiTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Chile: " + poblacionChi.data[ano]
                     if (poblacionChi.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Chile: Índice não indicado"
                     }
                 }
             }
@@ -641,7 +816,7 @@ function compararPerMex(){
                 if (ano === dataTotalPer && indicator === indicatorPerTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Peru: " + poblacionPer.data[ano]
                     if (poblacionPer.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Peru: Índice não indicado"
                     }
                 }
             }
@@ -714,7 +889,7 @@ function compararBraPer(){
                 if (ano === dataTotalBra && indicator === indicatorBraTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Brasil: " + poblacionBra.data[ano]
                     if (poblacionBra.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Brasil: Índice não indicado"
                     }
                 }
             }
@@ -741,7 +916,7 @@ function compararChiPer(){
                 if (ano === dataTotalChi && indicator === indicatorChiTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Chile: " + poblacionChi.data[ano]
                     if (poblacionChi.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Chile: Índice não indicado"
                     }
                 }
             }
@@ -768,7 +943,7 @@ function compararMexPer(){
                 if (ano === dataTotalMex && indicator === indicatorMexTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no México: " + poblacionMex.data[ano]
                     if (poblacionMex.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no México: Índice não indicado"
                     }
                 }
             }
