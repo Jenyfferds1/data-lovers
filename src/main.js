@@ -249,38 +249,29 @@ function ordemAm() {
         },
     ];
 console.log(yearsAm)
-for(i of yearsAm) {
-    if(i["2007"] !== ""){
-        console.log("vazio")
-    }
-    }
-
-
-for(i of yearsAm){
-    if(i["2007"] !== ""){
-        console.log("fjdklsf")
+for(let i of yearsAm) {
+    if(i[ano] !== ""){
+       let years=[]
+       years.push(i)
+        console.log(years)
     }
 }
 
-let ordenado = yearsAm.sort((a, b) => {
-    if (a[ano] > b[ano]) {
-        return 1;
-    }
-    return -1;
-});
-    //  if(ordenado[ano] === ""){
-    //     resultTotalAm.innerHTML =`
-    //    <p>Índice não definido</p> 
-    //    `
-    //  }else{
+
+    let ordenado = yearsAm.sort((a, b) => {
+        if (a[ano] > b[ano]) {
+            return 1;
+        }
+        return -1;
+    })
     resultTotalAm.innerHTML = `
-<p>País com índice máximo: ${ordenado[3].country}</p>
-<p>Índice: ${ordenado[3][ano]}</p>
-<p>País com índice mínimo: ${ordenado[0].country}</p>
-<p>Índice: ${ordenado[0][ano]}</p>
-`
-        // }
-}
+    <p>País com índice máximo: ${ordenado[3].country}</p>
+    <p>Índice: ${ordenado[3][ano]}</p>
+    <p>País com índice mínimo: ${ordenado[0].country}</p>
+    <p>Índice: ${ordenado[0][ano]}</p>
+    `
+}  
+
 
 function filterBra() {
     let x = document.getElementById("year-bra").selectedIndex;
@@ -330,7 +321,7 @@ function compararChiBra() {
                 if (ano === dataTotalChi && indicator === indicatorChiTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Chile: " + poblacionChi.data[ano]
                     if (poblacionChi.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Chile: Índice não indicado"
                     }
                 }
             }
@@ -359,7 +350,7 @@ function compararMexBra() {
                 if (ano === dataTotalMex && indicator === indicatorMexTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no México: " + poblacionMex.data[ano]
                     if (poblacionMex.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no México: Índice não indicado"
                     }
                 }
             }
@@ -388,7 +379,7 @@ function compararPerBra() {
                 if (ano === dataTotalPer && indicator === indicatorPerTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Peru: " + poblacionPer.data[ano]
                     if (poblacionPer.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Peru: Índice não indicado"
                     }
                 }
             }
@@ -462,7 +453,7 @@ function compararBraChi(){
                 if (ano === dataTotalBra && indicator === indicatorBraTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Brasil: " + poblacionBra.data[ano]
                     if (poblacionBra.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Brasil: Índice não indicado"
                     }
                 }
             }
@@ -490,7 +481,7 @@ function compararMexChi(){
                 if (ano === dataTotalMex && indicator === indicatorMexTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no México: " + poblacionMex.data[ano]
                     if (poblacionMex.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no México: Índice não indicado"
                     }
                 }
             }
@@ -519,7 +510,7 @@ function compararPerChi(){
                 if (ano === dataTotalPer && indicator === indicatorPerTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Peru: " + poblacionPer.data[ano]
                     if (poblacionPer.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Peru: Índice não indicado"
                     }
                 }
             }
@@ -592,7 +583,7 @@ function compararBraMex(){
                 if (ano === dataTotalBra && indicator === indicatorBraTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Brasil: " + poblacionBra.data[ano]
                     if (poblacionBra.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Brasil: Índice não indicado"
                     }
                 }
             }
@@ -619,7 +610,7 @@ function compararChiMex(){
                 if (ano === dataTotalChi && indicator === indicatorChiTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Chile: " + poblacionChi.data[ano]
                     if (poblacionChi.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Chile: Índice não indicado"
                     }
                 }
             }
@@ -648,7 +639,7 @@ function compararPerMex(){
                 if (ano === dataTotalPer && indicator === indicatorPerTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Peru: " + poblacionPer.data[ano]
                     if (poblacionPer.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Peru: Índice não indicado"
                     }
                 }
             }
@@ -721,7 +712,7 @@ function compararBraPer(){
                 if (ano === dataTotalBra && indicator === indicatorBraTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Brasil: " + poblacionBra.data[ano]
                     if (poblacionBra.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Brasil: Índice não indicado"
                     }
                 }
             }
@@ -748,7 +739,7 @@ function compararChiPer(){
                 if (ano === dataTotalChi && indicator === indicatorChiTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no Chile: " + poblacionChi.data[ano]
                     if (poblacionChi.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no Chile: Índice não indicado"
                     }
                 }
             }
@@ -775,7 +766,7 @@ function compararMexPer(){
                 if (ano === dataTotalMex && indicator === indicatorMexTotal) {
                     resultTotalComp.innerHTML = "Valor do índice no México: " + poblacionMex.data[ano]
                     if (poblacionMex.data[ano] === "") {
-                        resultTotalComp.innerHTML = "Índice não indicado"
+                        resultTotalComp.innerHTML = "Valor do índice no México: Índice não indicado"
                     }
                 }
             }
