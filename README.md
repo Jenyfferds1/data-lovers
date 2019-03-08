@@ -75,7 +75,7 @@ Os critérios para considerar que você completou o projeto são:
 ### Desenho da interface de usuário
 
 #### Protótipo
-[Protótipo da Marvel](https://marvelapp.com/4f9e810)
+[Protótipo da Marvel](https://marvelapp.com/3ebf814)
 
 #### Testes de usabilidade
 
