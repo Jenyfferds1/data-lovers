@@ -4,11 +4,8 @@
 
 * [Preâmbulo](#preâmbulo)
 * [Descrição](#resumo-do-projeto)
-* [Considerações gerais](#considerações-gerais)
-* [Objetivos de aprendizagem](#objetivos-de-aprendizagem)
 * [Parte obrigatória](#parte-obrigatória)
 * [Parte opcional](#parte-opcional-hacker-edition)
-* [Considerações técnicas](#considerações-técnicas)
 * [Primeiros passos](#primeiros-passos)
 * [Conteúdo de referência](#conteúdo-de-referência)
 * [Checklist](#checklist)
@@ -43,24 +40,10 @@ etapa de sua aprendizagem.
 Uma vez definida sua área de interesse, entenda quem é seu usuario e o que ele
 necessita saber ou ver exatamente; assim já poderá criar uma interface que o
 ajude a interagir e entender melhor os dados.
-Estes são os dados que propomos:
 
 * [Indicadores de desenvolvimento](src/data/worldbank/worldbank.json):
   Indicadores de desenvolvimento do Banco Mundial de alguns países (Brasil, Chile, México e Peru). Estes dados incluim indicadores
   demográficos, econômicos e comerciais.
-* [Pokémon](src/data/pokemon/pokemon.json):
-  Neste set você encontrará uma lista com os 151 Pokémons da região de Kanto,
-  junto com suas respectivas estatísticas usadas no jogo [Pokémon GO](pokemongolive.com).
-* [Steam notícias](src/data/steam/steam.json):
-  Lista de notícias relacionadas aos jogos presentes na plataforma [Steam](https://store.steampowered.com/).
-* [League of Legends - Challenger leaderboard](src/data/lol/lol.json):
-  Este set de dados mostra a lista de jogadores em uma liga do
-  jogo League of Legends (LoL). Você pode revisar a documentação de sua API
-  neste link [link](https://developer.riotgames.com/api-methods/).
-* [Pessoas feridas por meios de transporte nos EUA](src/data/injuries/injuries.json).
-  Este set nos mostra o número de pessoas feridas em acidentes em
-  meios de transporte, com a data anual desde 1960 e categorizada por
-  tipo de transporte (aéreo, barco, automóvel, moto, bicicleta, etc).
 
 Como produto final você terá que criar uma página web que permita **visualizar
 os dados, filtrá-los, ordená-los e fazer algum cálculo agregado**. Como esclarecimento,
@@ -75,36 +58,6 @@ Esperamos que cada set de dados esteja acompanhado de uma identidade gráfica
 condizente. Você pode pesquisar na internet para ter referências sobre cada um
 dos temas e trabalhar em uma identidade para sua página.
 
-## Considerações gerais
-
-* Este projeto deve ser feito em duplas.
-* O projeto será entregue através do Github (commit/push) e a
-  interface será entregue pelo Github Pages.
-
-## Objetivos de aprendizagem
-
-O objetivo principal deste projeto é que você aprenda a desenvolver
-uma interface web onde se possa visualizar e manipular dados, entendendo o
-que o usuário necessita.
-
-Falando com mais clareza, você aprenderá a:
-
-* Aplicar e aprofundar tudo o que aprendeu no projeto anterior.
-* Pensar nas **necessidades dos usuários** para criar uma interface que faça
-  sentido e com tarefas claras.
-* Trabalhar com suas definições de pronto (_definition of done_) na organização
-  e planificação de seu trabalho.
-* Definir os dados e de que forma mostrá-los no produto, baseando-se em seu
-  **entendimento de usuário**.
-* Criar produtos que sigam os **princípios básicos de usabilidade**.
-* Iterar o desenho do produto, baseando-se nos resultados dos
-  **testes de usabilidade**.
-* Manipular **_arrays_ e _objetos_**.
-* **Manipular o DOM** (agregar elementos dinamicamente, baseados nos dados).
-* **Manejar eventos do DOM** para permitir interação com o usuário
-  (dados filtrados, ordenados, etc).
-* Entender os benefícios e complexidades de **trabalhar em equipe** em um
-  ambiente de incertezas.
 
 ## Parte Obrigatória
 
@@ -112,25 +65,21 @@ Os critérios para considerar que você completou o projeto são:
 
 ### Definição do produto
 
-Documente brevemente seu trabalho no arquivo `README.md` de seu repositório,
-nos contando como foi seu processo de desenvolvimento do projeto e como
-acredita que seu produto resolve o problema (os problemas) do seu usuário.
+* O desenvolvimento do projeto começou definindo o tema e os usuários e criando esboços e protótipos para que atendessem de melhor forma a necessidade do usuário
+* Com o protótipo pronto e passando pelos testes de usuário começou o planejamento dos passos necessários para a realização do projeto
+* O objetivo principal foi desenvolver interface prática e de fácil entedimento para o usuário com funções que realizassem suas necessidades
+* Com o tema de indicadores de desenvolvimento foi trazido o foco na educação das mulheres na América Latina(com os países indicados no banco de dados disponível)
+* Foram criadas abas: uma aba com a página inicial indicando o objetivo da página, uma aba com quantidade de mulheres na América Latina em gráfico, uma aba da América Latina com filtragem de pesquisa comparando qual o país com índice máximo e minímo nos índices de educação e outra filtragem na mesma aba mostrando de cada país disponível o valor dos últimos 10 anos do índice escolhido e, abas separadas por país trazendo o índice de cada ano e um botão para comparação com os outros países. 
+* O usuário pode acessar apenas o país que quer visualizar, pode comparar com os outros países os índices e comparar o desenvolvimento daquele indicador nos últimos anos. 
 
 ### Desenho da interface de usuário
 
 #### Protótipo
-Durante seu trabalho você deverá ter feito esboços de sua solução usando papel
-e lápis. Recomendamos que você tire fotos de todas as iterações que faça, suba
-para seu repositório, e as mencione em seu`README.md`. Caso queira, pode
-desenhar protótipos de média fidelidade usando o [Marvel](https://marvelapp.com/)
-ou o [Figma](https://www.figma.com/).
+[Protótipo da Marvel](https://marvelapp.com/4f9e810)
 
 #### Testes de usabilidade
 
-Durante o desafio você deverá realizar testes de usabilidade com diversos
-usuários. Com base nos resultados dos testes, você deverá reorganizar seu
-protótipo. Documente as diversas iterações para ter ideia da evolução e para
-conseguir resgatar ideias mais tarde.
+O teste de usabilidade trouxe retorno positivo, porém durante a realização vimos a falta de necessidade de expor todos os índices na mesma página criando então uma caixa de seleção para exibir individualmente cada índice para mais clareza de visualização. 
 
 ### Implementação de Interface de Usuário (HTML/CSS/JS)
 
@@ -158,108 +107,6 @@ Features/características extras sugeridas:
 
 [Vídeo do Dani usando o HighCharts](https://www.youtube.com/watch?v=MTXoCp2D7Ps)
 [Vídeo da Ju usando o Google Charts](https://youtu.be/ueixcpZ65oc)
-
-## Considerações técnicas
-
-A lógica do projeto deve estar implementada completamente em JavaScript
-(ES6), HTML e CSS. Neste projeto NÃO está permitido usar bibliotecas ou
-frameworks, somente [vanilla JavaScript](https://medium.com/laboratoria-how-to/vanillajs-vs-jquery-31e623bbd46e), com exceção das
-bibliotecas para fazer gráficos (charts).
-Você não deve utilizar a _pseudo-variable_ `this`.
-O _boilerplate_ contém uma estrutura de arquivos como ponto de partida
-assim como toda configuração de dependências:
-
-```text
-.
-├── README.md
-└──src
-    ├── data
-    │   ├── injuries
-    │   │   ├── injuries.js
-    │   │   └── injuries.json
-    │   ├── lol
-    │   │   ├── lol.js
-    │   │   └── lol.json
-    │   ├── pokemon
-    │   │   ├── pokemon.js
-    │   │   └── pokemon.json
-    │   ├── steam
-    │   │   ├── steam.js
-    │   │   └── steam.json
-    │   └── worldbank
-    │       ├── worldbank.js
-    │       └── worldbank.json
-    ├── index.html
-    ├── main.js
-    └── style.css
-
-8 directories, 16 files
-```
-
-### `src/index.html`
-
-Assim como no projeto anterior, existe um arquivo `index.html`. Como
-você já sabe, aqui vai a página que se mostrará ao usuário. Também nos serve para indicar que scripts serão usados e unir tudo que fizemos.
-
-Neste arquivo você encontrará uma série de _etiquetas_ (_tags_) `<script>`
-_comentadas_. Para _carregar_ as diferentes fontes de dados você terá que
-_descomentar_ estas _tags_. Cada um destes scripts vai atribuir uma
-variável global com os dados correspondentes a essa fonte de dados.
-
-Por exemplo, se descomentamos a seguinte linha:
-
-```html
-<!-- <script src="./data/worldbank/worldbank.js"></script> -->
-```
-
-A linha ficaria assiim:
-
-```html
-<script src="./data/worldbank/worldbank.js"></script>
-```
-
-E agora teríamos a variável global `WORLDBANK` disponível em nossos
-outros scripts (como `src/data.js` ou `src/main.js`).
-
-### `src/main.js`
-
-Recomendamos usar `src/main.js` para toda a parte do seu código destinada
-a mostrar dados na tela. Com isto nos referimos basicamente as manipulações de DOM: operações como criação de nós, registro de manipuladores de eventos (_event listeners_ o _event handlers_), etc.
-
-Esta não é a única forma de dividir seu código. Você pode usar mais arquivos e pastas para que sua estrutura fique clara para suas companheiras.
-
-### `src/data`
-
-Nesta pasta estão os dados das diferentes fontes. Você encontrará uma pasta para cada fonte e dentro de cada pasta dois arquivos: um com a extensão `.js` e outro `.json`. Ambos arquivos contêm os mesmos dados; a diferença é que o `.js` usaremos através de uma tag `<script>`, enquanto
-que o `.json` está aí para que você possa, caso queira, carregar os dados de forma assíncrona com [`fetch()`](https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API).
-
-## Avaliação
-
-Te aconselhamos revisar [a rúbrica](https://docs.google.com/spreadsheets/d/1hwyBoJWbA0MHGEMDLKqftIv64IhA1uKe2kmJhYpir4s/edit#gid=2045120301)
-para ver a descrição detalhada de cada _habilidade_ e cada _nível_.
-
-Esta é uma lista de todas as habilidades que avaliaremos ao final deste projeto:
-
-### Tech
-
-**CS**
-Lógica
-Arquitetura
-Padrões/Paradigmas
-**SCM**
-Git
-GitHub
-**JavaScript**
-Nomenclatura/semântica
-Funções/modularidade
-Estruturas de dados
-**HTML**
-Validação
-Semântica
-**CSS**
-DRY
-
-***
 
 ## Dicas de como começar a trabalhar no projeto
 
