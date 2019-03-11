@@ -272,7 +272,7 @@ Highcharts.chart('container', {
         type: 'bar'
     },
     title: {
-        text: 'População de mulheres na América Latina em 2007 e 2017'
+        text: 'População de mulheres na América Latina entre 2007 e 2017'
     },
     xAxis: {
         categories: ['Brasil', 'Chile', 'México', 'Peru'],
@@ -441,12 +441,23 @@ let ordenado = filterMinMax().sort((a, b) => {
 
 let max = ordenado[ordenado.length-1]
 
+if(ordenado[ano] === undefined){
+    resultTotalAm.innerHTML = `
+    <p>Não há índices disponíveis para comparação</p>
+    `  
+}
+if(ordenado[0][ano] === undefined && max[ano] === undefined){
+    resultTotalAm.innerHTML = `
+    <p>Não há índices disponíveis para comparação</p>
+    ` 
+}else{
     resultTotalAm.innerHTML = `
     <p>País com índice máximo: ${max.country}</p>
     <p>Índice: ${max[ano]}</p>
     <p>País com índice mínimo: ${ordenado[0].country}</p>
     <p>Índice: ${ordenado[0][ano]}</p>
     `
+}
 }  
 
 
