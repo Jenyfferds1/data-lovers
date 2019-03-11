@@ -73,7 +73,7 @@ h3 {
     flex-direction: center;
     margin: auto;
     margin-left: 0%;
-    padding: 0% 20% 0% 10%;
+    padding: 0% 16% 0% 10%;
 }
 
 #conteudo-brasil,
@@ -87,7 +87,6 @@ h3 {
 }
 
 #result-am,
-#result-am-two,
 #result-bra,
 #compararChiBra,
 #compararMexBra,
@@ -160,7 +159,7 @@ h3 {
 }
 
 .footer ul {
-    margin-top: 35px;
+    margin-top: 0px;
     padding: 0;
     display: flex;
     justify-content: space-around;
@@ -186,11 +185,17 @@ h3 {
     cursor: pointer;
 }
 
+.edu {
+    color: #18bc9c;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .copyright {
     display: flex;
     justify-content: center;
     background-color: rgb(213, 74, 142);
     color: white;
+    margin: auto;
 }
 
 #home {
