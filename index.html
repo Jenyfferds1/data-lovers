@@ -15,24 +15,24 @@
     <header>
         <div id="root"></div>
         <section class="section-cont">
-            <ul class="conteudo-tab">
+            <ul class="content-tab">
                 <li>
                     <h1 class="title">EDUCAM</h1>
                 </li>
-                <li><button type="button" value="HOME" data-tab-seleccionado="tab-home" id="tab-home"
+                <li><button type="button" value="HOME" data-tab-selected="tab-home" id="tab-home"
                         class="tab">Home</button></li>
-                <li><button type="button" value="GRA" data-tab-seleccionado="tab-grafic" id="tab-grafic"
+                <li><button type="button" value="GRA" data-tab-selected="tab-graphic" id="tab-graphic"
                         class="tab">Mulheres na América Latina</button></li>
-                <li><button type="button" value="AM" data-tab-seleccionado="tab-am" id="tab-am" class="tab">América
+                <li><button type="button" value="AM" data-tab-selected="tab-am" id="tab-am" class="tab">América
                         Latina</button></li>
-                <li><button type="button" value="BRA" data-tab-seleccionado="tab-brasil" id="tab-bra"
+                <li><button type="button" value="BRA" data-tab-selected="tab-bra" id="tab-bra"
                         class="tab">Brasil</button></li>
-                <li><button type="button" value="CHI" data-tab-seleccionado="tab-chile" id="tab-chi"
+                <li><button type="button" value="CHI" data-tab-selected="tab-chi" id="tab-chi"
                         class="tab">Chile</button></li>
-                <li><button type="button" value="MEX" data-tab-seleccionado="tab-mexico" id="tab-mex"
+                <li><button type="button" value="MEX" data-tab-selected="tab-mex" id="tab-mex"
                         class="tab">México</button></li>
-                <li><button type="button" value="PER" data-tab-seleccionado="tab-peru" id="tab-per"
-                        class="tab">Peru</button></li>
+                <li><button type="button" value="PER" data-tab-selected="tab-per" id="tab-per" class="tab">Peru</button>
+                </li>
             </ul>
         </section>
     </header>
@@ -45,14 +45,14 @@
                 ensino.
             </p>
         </article>
-        <article id="grafic" class="conteudo-grafic">
+        <article id="graphic" class="content-graphic">
             <div id="container" style="min-width: 310px; max-width: 1000px; width: 100%; height: 550px; margin: 0 auto">
             </div>
         </article>
-        <article id="am" class="conteudo">
+        <article id="am" class="content">
             <h3>América Latina</h3>
             <h3>Países com índices Mínimo e Máximo voltados a educação</h3>
-            <select class="am-ind" id="conteudoam-ordem"></select>
+            <select class="content-country" id="contentam-ordem"></select>
             <select class="option-year" id="year-am">
                 <option value="2007">2007</option>
                 <option value="2008">2008</option>
@@ -68,9 +68,9 @@
                 <option value="none" selected>escolha o ano</option>
             </select>
             <button class="btn" onclick="ordemAm()">OK</button>
-            <article class="am" id="result-am"></article>
+            <article class="compare-country" id="result-am"></article>
             <h3 class="am">Resultados de 2007 a 2017</h3>
-            <select class="am-ind" id="conteudo-brasil-am"></select>
+            <select class="content-country" id="content-brasil-am"></select>
             <select class="am" id="ind-total-countrys">
                 <option value="Brasil">Brasil</option>
                 <option value="Chile">Chile</option>
@@ -79,12 +79,11 @@
                 <option value="none" selected>escolha o país</option>
             </select>
             <button class="btn" onclick="showCountryAm()">OK</button>
-            <article id="result-am-two"></article>
+            <article id="result-am-two" class="compare-country"></article>
         </article>
-        <article id="brasil" class="conteudo">
+        <article id="brasil" class="content">
             <h3>Índices do Brasil</h3>
-            <div class="componente"></div>
-            <select id="conteudo-brasil"></select>
+            <select id="content-brasil" class="content-country"></select>
             <select class="option-year" id="year-bra">
                 <option value="2007">2007</option>
                 <option value="2008">2008</option>
@@ -99,20 +98,20 @@
                 <option value="2017">2017</option>
                 <option value="none" selected>escolha o ano</option>
             </select>
-            <button class="btn" onclick="filterCountry('year-bra', 'conteudo-brasil', 'result-bra', 'BRA')">OK</button>
-            <p id="result-bra"></p>
             <button class="btn"
-                onclick="compare('year-bra', 'conteudo-brasil', 'compararChiBra', 'CHL', 'Chile'); compare('year-bra', 'conteudo-brasil', 'compararMexBra', 'MEX', 'México'); compare('year-bra', 'conteudo-brasil', 'compararPerBra', 'PER', 'Peru')">Comparar
+                onclick="filterCountry('year-bra', 'content-brasil', 'result-bra', 'BRA', 'Brasil')">OK</button>
+            <p id="result-bra" class="compare-country"></p>
+            <button class="btn"
+                onclick="filterCountry('year-bra', 'content-brasil', 'compareChiBra', 'CHL', 'Chile'); filterCountry('year-bra', 'content-brasil', 'compareMexBra', 'MEX', 'México'); filterCountry('year-bra', 'content-brasil', 'comparePerBra', 'PER', 'Peru')">compare
                 com os outros
                 países</button>
-            <p id="compararChiBra"></p>
-            <p id="compararMexBra"></p>
-            <p id="compararPerBra"></p>
+            <p id="compareChiBra" class="compare-country"></p>
+            <p id="compareMexBra" class="compare-country"></p>
+            <p id="comparePerBra" class="compare-country"></p>
         </article>
-        <article id="chile" class="conteudo">
+        <article id="chile" class="content">
             <h3>Índices do Chile</h3>
-            <div class="componente"></div>
-            <select id="conteudo-chile"></select>
+            <select id="content-chile" class="content-country"></select>
             <select class="option-year" id="year-chi">
                 <option value="2007">2007</option>
                 <option value="2008">2008</option>
@@ -127,20 +126,20 @@
                 <option value="2017">2017</option>
                 <option value="none" selected>escolha o ano</option>
             </select>
-            <button class="btn" onclick="filterCountry('year-chi', 'conteudo-chile', 'result-chi', 'CHL')">OK</button>
+            <button class="btn"
+                onclick="filterCountry('year-chi', 'content-chile', 'result-chi', 'CHL', 'Chile')">OK</button>
             <p id="result-chi"></p>
             <button class="btn"
-                onclick="compare('year-chi', 'conteudo-chile', 'compararBraChi', 'BRA', 'Brasil'); compare('year-chi', 'conteudo-chile', 'compararMexChi', 'MEX', 'México'); compare('year-chi', 'conteudo-chile', 'compararPerChi', 'PER', 'Peru')">Comparar
+                onclick="filterCountry('year-chi', 'content-chile', 'compareBraChi', 'BRA', 'Brasil'); filterCountry('year-chi', 'content-chile', 'compareMexChi', 'MEX', 'México'); filterCountry('year-chi', 'content-chile', 'comparePerChi', 'PER', 'Peru')">compare
                 com os outros
                 países</button>
-            <p id="compararBraChi"></p>
-            <p id="compararMexChi"></p>
-            <p id="compararPerChi"></p>
+            <p id="compareBraChi" class="compare-country"></p>
+            <p id="compareMexChi" class="compare-country"></p>
+            <p id="comparePerChi" class="compare-country"></p>
         </article>
-        <article id="mexico" class="conteudo">
+        <article id="mexico" class="content">
             <h3>Índices do México</h3>
-            <div class="componente"></div>
-            <select id="conteudo-mexico"></select>
+            <select id="content-mexico" class="content-country"></select>
             <select class="option-year" id="year-mex">
                 <option value="2007">2007</option>
                 <option value="2008">2008</option>
@@ -155,20 +154,20 @@
                 <option value="2017">2017</option>
                 <option value="none" selected>escolha o ano</option>
             </select>
-            <button class="btn" onclick="filterCountry('year-mex', 'conteudo-mexico', 'result-mex', 'MEX')">OK</button>
+            <button class="btn"
+                onclick="filterCountry('year-mex', 'content-mexico', 'result-mex', 'MEX', 'México')">OK</button>
             <p id="result-mex"></p>
             <button class="btn"
-                onclick="compare('year-mex', 'conteudo-mexico', 'compararBraMex', 'BRA', 'Brasil'); compare('year-mex', 'conteudo-mexico', 'compararChiMex', 'CHL', 'Chile'); compare('year-mex', 'conteudo-mexico', 'compararPerMex', 'PER', 'Peru')">Comparar
+                onclick="filterCountry('year-mex', 'content-mexico', 'compareBraMex', 'BRA', 'Brasil'); filterCountry('year-mex', 'content-mexico', 'compareChiMex', 'CHL', 'Chile'); filterCountry('year-mex', 'content-mexico', 'comparePerMex', 'PER', 'Peru')">compare
                 com os outros
                 países</button>
-            <p id="compararBraMex"></p>
-            <p id="compararChiMex"></p>
-            <p id="compararPerMex"></p>
+            <p id="compareBraMex" class="compare-country"></p>
+            <p id="compareChiMex" class="compare-country"></p>
+            <p id="comparePerMex" class="compare-country"></p>
         </article>
-        <article id="peru" class="conteudo">
+        <article id="peru" class="content">
             <h3>Índices do Peru</h3>
-            <div class="componente"></div>
-            <select id="conteudo-peru"></select>
+            <select id="content-peru" class="content-country"></select>
             <select class="option-year" id="year-per">
                 <option value="2007">2007</option>
                 <option value="2008">2008</option>
@@ -183,19 +182,19 @@
                 <option value="2017">2017</option>
                 <option value="none" selected>escolha o ano</option>
             </select>
-            <button class="btn" onclick="filterCountry('year-per', 'conteudo-peru', 'result-per', 'PER')">OK</button>
+            <button class="btn"
+                onclick="filterCountry('year-per', 'content-peru', 'result-per', 'PER', 'Peru')">OK</button>
             <p id="result-per"></p>
             <button class="btn"
-                onclick="compare('year-per', 'conteudo-peru', 'compararBraPer', 'BRA', 'Brasil'); compare('year-per', 'conteudo-peru', 'compararChiPer', 'CHL', 'Chile'); compare('year-per', 'conteudo-peru', 'compararMexPer', 'MEX', 'México')">Comparar
+                onclick="filterCountry('year-per', 'content-peru', 'compareBraPer', 'BRA', 'Brasil'); filterCountry('year-per', 'content-peru', 'compareChiPer', 'CHL', 'Chile'); filterCountry('year-per', 'content-peru', 'compareMexPer', 'MEX', 'México')">compare
                 com os outros
                 países</button>
-            <p id="compararBraPer"></p>
-            <p id="compararChiPer"></p>
-            <p id="compararMexPer"></p>
+            <p id="compareBraPer" class="compare-country"></p>
+            <p id="compareChiPer" class="compare-country"></p>
+            <p id="compareMexPer" class="compare-country"></p>
         </article>
     </main>
     <footer class="footer">
-
         <section class="container-footer">
             <div>
                 <h3 class="font-montserrat">SOBRE</h3>
@@ -227,6 +226,7 @@
     <script src="src/data/worldbank/worldbank.js"></script>
     <script src="src/main.js"></script>
     <script src="src/graphic.js"></script>
+    <script src="src/tab.js"></script>
 </body>
 
 </html>
