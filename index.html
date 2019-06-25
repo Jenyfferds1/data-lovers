@@ -37,7 +37,7 @@
         </section>
     </header>
     <main>
-        <article id="home">
+        <article id="home" class="home">
             <p class="education">EDUCAÇÃO</p>
             <p class="educam">A educação é um outro termo para aprender a desenvolver seus conhecimentos e habilidades
                 para melhorar. Os métodos de educação poderiam ser feitos através de discussão, contaçao de histórias,
@@ -46,12 +46,13 @@
             </p>
         </article>
         <article id="graphic" class="content-graphic">
-            <div id="container" style="min-width: 310px; max-width: 1000px; width: 100%; height: 550px; margin: 0 auto">
+            <div id="container" class="container"
+                style="min-width: 310px; max-width: 1000px; width: 100%; height: 550px; margin: 0 auto">
             </div>
         </article>
         <article id="am" class="content">
-            <h3>América Latina</h3>
-            <h3>Países com índices Mínimo e Máximo voltados a educação</h3>
+            <h3 class="title-tab">América Latina</h3>
+            <h3 class="title-tab">Países com índices Mínimo e Máximo voltados a educação</h3>
             <select class="content-country" id="contentam-ordem"></select>
             <select class="option-year" id="year-am">
                 <option value="2007">2007</option>
@@ -69,20 +70,20 @@
             </select>
             <button class="btn" onclick="ordemAm()">OK</button>
             <article class="compare-country" id="result-am"></article>
-            <h3 class="am">Resultados de 2007 a 2017</h3>
+            <h3 class="am title-tab">Resultados de 2007 a 2017</h3>
             <select class="content-country" id="content-brasil-am"></select>
             <select class="am" id="ind-total-countrys">
-                <option value="Brasil">Brasil</option>
-                <option value="Chile">Chile</option>
-                <option value="México">México</option>
-                <option value="Peru">Peru</option>
+                <option value="BRA">Brasil</option>
+                <option value="CHL">Chile</option>
+                <option value="MEX">México</option>
+                <option value="PER">Peru</option>
                 <option value="none" selected>escolha o país</option>
             </select>
             <button class="btn" onclick="showCountryAm()">OK</button>
             <article id="result-am-two" class="compare-country"></article>
         </article>
-        <article id="brasil" class="content">
-            <h3>Índices do Brasil</h3>
+        <article id="bra" class="content">
+            <h3 class="title-tab">Índices do Brasil</h3>
             <select id="content-brasil" class="content-country"></select>
             <select class="option-year" id="year-bra">
                 <option value="2007">2007</option>
@@ -109,8 +110,8 @@
             <p id="compareMexBra" class="compare-country"></p>
             <p id="comparePerBra" class="compare-country"></p>
         </article>
-        <article id="chile" class="content">
-            <h3>Índices do Chile</h3>
+        <article id="chi" class="content">
+            <h3 class="title-tab">Índices do Chile</h3>
             <select id="content-chile" class="content-country"></select>
             <select class="option-year" id="year-chi">
                 <option value="2007">2007</option>
@@ -128,7 +129,7 @@
             </select>
             <button class="btn"
                 onclick="filterCountry('year-chi', 'content-chile', 'result-chi', 'CHL', 'Chile')">OK</button>
-            <p id="result-chi"></p>
+            <p id="result-chi" class="compare-country"></p>
             <button class="btn"
                 onclick="filterCountry('year-chi', 'content-chile', 'compareBraChi', 'BRA', 'Brasil'); filterCountry('year-chi', 'content-chile', 'compareMexChi', 'MEX', 'México'); filterCountry('year-chi', 'content-chile', 'comparePerChi', 'PER', 'Peru')">compare
                 com os outros
@@ -137,8 +138,8 @@
             <p id="compareMexChi" class="compare-country"></p>
             <p id="comparePerChi" class="compare-country"></p>
         </article>
-        <article id="mexico" class="content">
-            <h3>Índices do México</h3>
+        <article id="mex" class="content">
+            <h3 class="title-tab">Índices do México</h3>
             <select id="content-mexico" class="content-country"></select>
             <select class="option-year" id="year-mex">
                 <option value="2007">2007</option>
@@ -156,7 +157,7 @@
             </select>
             <button class="btn"
                 onclick="filterCountry('year-mex', 'content-mexico', 'result-mex', 'MEX', 'México')">OK</button>
-            <p id="result-mex"></p>
+            <p id="result-mex" class="compare-country"></p>
             <button class="btn"
                 onclick="filterCountry('year-mex', 'content-mexico', 'compareBraMex', 'BRA', 'Brasil'); filterCountry('year-mex', 'content-mexico', 'compareChiMex', 'CHL', 'Chile'); filterCountry('year-mex', 'content-mexico', 'comparePerMex', 'PER', 'Peru')">compare
                 com os outros
@@ -165,8 +166,8 @@
             <p id="compareChiMex" class="compare-country"></p>
             <p id="comparePerMex" class="compare-country"></p>
         </article>
-        <article id="peru" class="content">
-            <h3>Índices do Peru</h3>
+        <article id="per" class="content">
+            <h3 class="title-tab">Índices do Peru</h3>
             <select id="content-peru" class="content-country"></select>
             <select class="option-year" id="year-per">
                 <option value="2007">2007</option>
@@ -184,7 +185,7 @@
             </select>
             <button class="btn"
                 onclick="filterCountry('year-per', 'content-peru', 'result-per', 'PER', 'Peru')">OK</button>
-            <p id="result-per"></p>
+            <p id="result-per" class="compare-country"></p>
             <button class="btn"
                 onclick="filterCountry('year-per', 'content-peru', 'compareBraPer', 'BRA', 'Brasil'); filterCountry('year-per', 'content-peru', 'compareChiPer', 'CHL', 'Chile'); filterCountry('year-per', 'content-peru', 'compareMexPer', 'MEX', 'México')">compare
                 com os outros
@@ -197,12 +198,12 @@
     <footer class="footer">
         <section class="container-footer">
             <div>
-                <h3 class="font-montserrat">SOBRE</h3>
+                <h3 class="font-montserrat title-tab">SOBRE</h3>
                 <p class="footer-link font-lato"><span class="edu">EDUCAM</span> é uma Instituição sem fins lucrativos
                     criada para informar por meio de dados sobre a educação na América Latina para as mulheres.</p>
             </div>
             <div>
-                <h3 class="font-montserrat">REDES SOCIAIS</h3>
+                <h3 class="font-montserrat title-tab">REDES SOCIAIS</h3>
                 <ul>
                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
@@ -212,7 +213,7 @@
                 </ul>
             </div>
             <div>
-                <h3 class="font-montserrat">TEAMWORK</h3>
+                <h3 class="font-montserrat title-tab">TEAMWORK</h3>
                 <p class="font-lato">Venha fazer parte da nossa equipe!</p>
             </div>
         </section>

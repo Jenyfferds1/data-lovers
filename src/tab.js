@@ -1,9 +1,9 @@
 function showHide(e) {
   const tabSelected = e.target.dataset.tabSelected;
-  const bra = document.getElementById("brasil");
-  const chi = document.getElementById("chile");
-  const mex = document.getElementById("mexico");
-  const per = document.getElementById("peru");
+  const bra = document.getElementById("bra");
+  const chi = document.getElementById("chi");
+  const mex = document.getElementById("mex");
+  const per = document.getElementById("per");
   const am = document.getElementById("am");
   const home = document.getElementById("home");
   const graphic = document.getElementById("graphic");
@@ -79,10 +79,10 @@ function showHide(e) {
 
 function loadPage() {
   const home = document.getElementById("home");
-  const bra = document.getElementById("brasil");
-  const chi = document.getElementById("chile");
-  const mex = document.getElementById("mexico");
-  const per = document.getElementById("peru");
+  const bra = document.getElementById("bra");
+  const chi = document.getElementById("chi");
+  const mex = document.getElementById("mex");
+  const per = document.getElementById("per");
   const am = document.getElementById("am");
   const graphic = document.getElementById("graphic");
   chi.style.display = 'none';
