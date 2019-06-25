@@ -3,12 +3,12 @@ body {
     background-image: url("images/Home.jpg");
     padding: 0%;
     background-repeat: no-repeat;
-    position: absolute;
+    width: 100%;
 }
 
 main {
     margin: auto;
-    min-height: 500px;
+    min-height: 550px;
 }
 
 .title {
@@ -40,17 +40,12 @@ main {
 
 .tab {
     font-family: 'Montserrat', sans-serif;
-    flex-direction: row;
     color: #18bc9c;
     background-color: transparent;
-    border-bottom: transparent;
     padding: 10px;
-    width: 150px;
+    margin: 0 25px;
     border-width: 0px;
-    border-style: outset;
-    border-color: none;
-    border-image: none;
-    font-size: 100%;
+    font-size: 18px;
     text-align: center;
     outline: 0px;
 }
@@ -74,33 +69,44 @@ main {
 
 .content-country {
     width: 50%;
+}
+
+.content-country, .option-year, .am {
     height: 10%;
+    margin: 0 0 15px;
+    padding: 15px 7.5px 15px 7.5px;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
 }
 
 .compare-country {
     font-family: 'Lato', sans-serif;
-    font-size: 100%;
+    font-size: 18px;
 }
 
 .btn {
     background-color: rgb(79, 2, 176);
     color: white;
     border-radius: 5px;
-    padding: 2%;
+    padding: 3%;
     border-color: transparent;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
 }
 
 .education {
     font-family: 'Montserrat', sans-serif;
-    padding: 10% 50% 0% 10%;
+    padding: 4% 0% 0% 12%;
     font-size: 50px;
     color: rgb(79, 2, 176);
+    margin: 0;
 }
 
 .educam {
     font-family: 'Lato', sans-serif;
-    padding: 1% 50% 8% 8%;
+    padding: 0% 20% 1% 8%;
     font-size: 120%;
+    text-align: justify;
 }
 
 .footer {
